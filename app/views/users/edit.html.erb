@@ -1,0 +1,17 @@
+<div class="container">
+	<h2>
+		マイページ<br>
+		EDIT
+	</h2>
+	<div class="row">
+		<%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "20x20" %>
+		<%= form_for(@user) do |f| %>
+		<label>USER名</label><br>
+        <%= f.text_field :username %>
+        <br>
+        <label>マイプロフィール</label><br>
+        <%= f.text_field :introduction %>
+        <%= f.submit "UP", class: "btn btn-primary" %>
+        <% end %>
+	</div>
+</div>

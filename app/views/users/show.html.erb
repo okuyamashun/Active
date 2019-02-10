@@ -1,0 +1,27 @@
+
+	<div class="container mypage">
+		<h2>マイページ</h2>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="mypage-username">
+					<%= @user.username %>
+				</div>
+				<div class="mypage-image">
+					<%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "/images/no_image.jpg", size: "150x150" %>
+				</div>
+				<div class="mypage-email">
+					<%= @user.email %>
+				</div>
+				<span class="mypage-introduction">
+					<%= @user.introduction %>
+				</span>
+				<span class="mypage-edit">
+					<%= link_to "プロフィール編集", edit_user_path(@user.id), class:"btn btn-primary" %>
+				</span>
+				<span class="mypage-sign_out">
+					<%= link_to destroy_user_session_path, method: :delete, class:'logout' %>
+				</span>
+			</div>
+		</div>
+		
+	</div>

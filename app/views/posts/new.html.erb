@@ -1,0 +1,56 @@
+<div class="container post-new-1">
+	<div class="row post-new-row1">
+		<div class="col-md-2 post-new-user">
+			<div class="post-new-title">
+				<h3>TODAY ACTIVE!</h3>
+			</div>
+			<div class="post-new-userimage">
+				<%= attachment_image_tag post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "20x20" %>
+			</div>
+			<div class="post-new-username">
+				<%= @user.username %>
+			</div>
+			<div class="post-new-email">
+				<%= @user.email %>
+			</div>
+		</div>
+		<div class="col-md-10 post-new-main">
+			<div class="container post-new-2">
+				<div class="row post-new-row2">
+					<div class="col-md-12 post-new-image">
+						<%= form_for(post) do |f| %>
+					    	<%= f.fields_for :image do |image| %>
+					        	<%= image.file_field :image %>
+					        <% end %>
+					</div>
+				</div>
+			</div>
+			<div class="container post-new-3">
+				<div class="row post-new-row3">
+					<div class="col-md-12 post-new-show">
+							<h4 class="new-location"> 活動場所 </h4>
+							<div class="post-new-location">
+								<%= f.text_field :location %>
+							</div>
+							<h4 class="new-genre"> ジャンル選択 </h4>
+							<div class="post-new-genre">
+							<%= f.select(:genre, [["キャンプ", "キャンプ"], ["登山", "登山"], ["サイクリング", "サイクリング"], ["サーフィン", "サーフィン"], ["ダイビング", "ダイビング"], ["カヌー、カヤック","カヌー、カヤック"], ["ヨット","ヨット"], ["釣り","釣り"], ["スノーボード、スキー","スノーボード、スキー"], ["ボルダリング","ボルダリング"], ["スカイダイビング","スカイダイビング"], ["その他","その他"]]) %>
+							</div>
+							<h4 class="new-title"> タイトル </h4>
+							<div class="post-new-title">
+								<%= f.text_field :title %>
+							</div>
+							<h4 class="new-posted_details"> 投稿詳細 </h4>
+							<div class="post-new-posted_details">
+								<%= f.text_field :posted_details %>
+							</div>
+							<div class="post-new-up">
+							<%= f.submit "ACTIVE UP", class:"btn btn-primary" %>
+							</div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,80 @@
+
+<div id="container">
+  <div id="theTarget">
+    <div class="image1"></div>
+    <div class="image2"></div>
+    <div class="image3"></div>
+    <div class="image4"></div>
+    <div class="image5"></div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 touroku">
+    <p class="signup_title"> 新規登録 </p>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="field">
+          <%= f.label :name %><br />
+          <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up" %>
+        </div>
+      <% end %>
+      <div class="login_link">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  
+$(document).ready(function () {
+  $("#theTarget").skippr({
+      // スライドショーの変化 ("fade" or "slide")
+      transition : 'fade',
+      // 変化に係る時間(ミリ秒)
+      speed : 1000,
+      // easingの種類
+      easing : 'easeOutQuart',
+      // ナビゲーションの形("block" or "bubble")
+      navType : 'none',
+      // 子要素の種類("div" or "img")
+      childrenElementType : 'div',
+      // ナビゲーション矢印の表示(trueで表示)
+      arrows : false,
+      // スライドショーの自動再生(falseで自動再生なし)
+      autoPlay : true,
+      // 自動再生時のスライド切替間隔(ミリ秒)
+      autoPlayDuration : 5000,
+      // キーボードの矢印キーによるスライド送りの設定(trueで有効)
+      keyboardOnAlways : false,
+      // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
+      hidePrevious : false
+  });
+});
+</script>
+

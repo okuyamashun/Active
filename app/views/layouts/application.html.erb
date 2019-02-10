@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ACTIVE</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="clearfix">
+        <span class="icon">
+          <div class="icons1">
+            <i class="material-icons">assignment_ind</i>
+          </div>
+          <div class="icons2">
+            <i class="material-icons">border_color</i>
+          </div>
+        </span>
+
+        <div class="active">
+          <span>
+            <ruby>ACTIVE<rt class="active-rt">アクティブ</rt></ruby>
+          </span>
+        </div>
+        <%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %>
+            <i class="icons3">
+            <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+            </i>
+            <% end %>
+    </header>
+    
+    <%= yield %>
+    <footer>
+      <div class="end">
+        <p class="footer_title">©︎2019 RareRecord inc. All Right ACTIVE.</p>
+      </div>
+    </footer>
+  </body>
+</html>

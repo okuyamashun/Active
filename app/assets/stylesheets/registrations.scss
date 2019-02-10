@@ -1,0 +1,77 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.image1 {
+background-image: url(image1.jpg);
+background-size: cover;
+}
+.image2 {
+background-image: url(image2.jpg);
+background-size: cover;
+}
+.image3 {
+background-image: url(image3.jpg);
+background-size: cover;
+}
+.image4 {
+background-image: url(image4.jpg);
+background-size: cover;
+}
+.image5 {
+background-image: url(image5.jpg);
+background-size: cover;
+}
+
+.container {
+	min-height: calc(100vh - 70px);
+	position: absolute;
+	top: 260px;
+	left: 150px;
+
+}
+
+.touroku {
+	z-index: 9999;
+	margin-top: 20px;
+	margin-left: 340px;
+	margin-bottom: 40px;
+	padding: 20px;
+	box-shadow: rgba(0,0,0,0.7) 3px 3px 10px;
+	background-color: #66FF99;
+	border-top-right-radius: 18px;
+	border-top-left-radius: 18px;
+	border-bottom-right-radius: 18px;
+	border-bottom-left-radius: 18px;
+	background-attachment: fixed;
+	background: linear-gradient(#FFD5EC, #FF6928) fixed;
+}
+
+.signup_title {
+	text-align: center;
+	font-size: 70px;
+	margin: 30px 30px;
+}
+
+.field {
+	text-align: center;
+	font-size: 20px;
+}
+
+.actions {
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.login_link {
+	text-align: center;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+
+
+
