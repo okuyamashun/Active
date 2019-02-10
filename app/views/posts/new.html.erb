@@ -1,11 +1,11 @@
-<div class="container post-new-1">
+<div class="container">
 	<div class="row post-new-row1">
 		<div class="col-md-2 post-new-user">
 			<div class="post-new-title">
 				<h3>TODAY ACTIVE!</h3>
 			</div>
 			<div class="post-new-userimage">
-				<%= attachment_image_tag post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "20x20" %>
+				<%= attachment_image_tag @post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "20x20" %>
 			</div>
 			<div class="post-new-username">
 				<%= @user.username %>
@@ -18,10 +18,7 @@
 			<div class="container post-new-2">
 				<div class="row post-new-row2">
 					<div class="col-md-12 post-new-image">
-						<%= form_for(post) do |f| %>
-					    	<%= f.fields_for :image do |image| %>
-					        	<%= image.file_field :image %>
-					        <% end %>
+
 					</div>
 				</div>
 			</div>
@@ -29,6 +26,7 @@
 				<div class="row post-new-row3">
 					<div class="col-md-12 post-new-show">
 							<h4 class="new-location"> 活動場所 </h4>
+							<%= form_for @post do |f| %>
 							<div class="post-new-location">
 								<%= f.text_field :location %>
 							</div>
@@ -54,3 +52,11 @@
 		</div>
 	</div>
 </div>
+
+
+
+
+<%= form_with model: @post, local: true  do |form| %>
+							  <%= form.file_field :images, multiple: true %><br>
+							  <%= form.submit %>
+						<% end %>

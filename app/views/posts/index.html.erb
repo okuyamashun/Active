@@ -15,8 +15,16 @@
 						</h5>
 					</div>
 					<div class="card-footer"></div>
+
+					<% if post.images.attached? %>
+					  <% post.images.each do |image| %>
+					    <%= image_tag image %> <br>
+					  <% end %>
+					<% end %>
 				</div>
 			</div>
 		<% end %>
 	</div>
 </div>
+
+

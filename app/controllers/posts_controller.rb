@@ -3,9 +3,9 @@ class PostsController < ApplicationController
 	before_action :authenticate_user!
 
 	def new
-		@users = User.find(params[:id])
-		@post = Post.new(create_params)
-		3.times { @post.images.build }
+		@user = current_user
+		@post = Post.new
+		@post.images.build
 	end
 
 	def show
