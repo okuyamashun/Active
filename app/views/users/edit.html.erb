@@ -1,17 +1,30 @@
 <div class="container">
-	<h2>
+	<h2 class="mypage-edit-midasi">
 		マイページ<br>
 		EDIT
 	</h2>
-	<div class="row">
-		<%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "20x20" %>
-		<%= form_for(@user) do |f| %>
-		<label>USER名</label><br>
-        <%= f.text_field :username %>
-        <br>
-        <label>マイプロフィール</label><br>
-        <%= f.text_field :introduction %>
-        <%= f.submit "UP", class: "btn btn-primary" %>
-        <% end %>
+	<div class="row mypage-edit-row">
+		<div class="col-md-8 mypage-edit">
+			<%= form_for(@user) do |f| %>
+				<div class="mypage-profile-image">
+					<%= f.attachment_field :profile_image %>
+				</div>
+				<div class="mypage-edit-name">
+					<h4 class="mypage-edit-name-title">USER名</h4>
+					<div class="mypage-edit-username">
+				    	<%= f.text_field :username %>
+					</div>
+				</div>
+				<div class="mypage-edit-introduction">
+				    <h4 class="mypage-edit-introduction-title">マイプロフィール</h4>
+				    <div class="mypage-edit-introduction-field">
+				    	<%= f.text_field :introduction %>
+					</div>
+				</div>
+				<div class="mypage-edit-up">
+				    <%= f.submit "UP", class: "btn btn-primary" %>
+				</div>
+		    <% end %>
+    	</div>
 	</div>
 </div>

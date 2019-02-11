@@ -2,7 +2,7 @@
 	<div class="container mypage">
 		<h2>マイページ</h2>
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12 mypage-main">
 				<div class="mypage-username">
 					<%= @user.username %>
 				</div>
@@ -19,7 +19,11 @@
 					<%= link_to "プロフィール編集", edit_user_path(@user.id), class:"btn btn-primary" %>
 				</span>
 				<span class="mypage-sign_out">
-					<%= link_to destroy_user_session_path, method: :delete, class:'logout' %>
+					<%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %>
+		            <i class="icons3">
+		            <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+		            </i>
+		            <% end %>
 				</span>
 			</div>
 		</div>

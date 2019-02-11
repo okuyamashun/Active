@@ -75,6 +75,8 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 
 gem "refile-mini_magick"
 
+gem "refile-mini_magick"
+
 gem 'simple_form'
 
 gem 'ransack'

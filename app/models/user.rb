@@ -9,5 +9,6 @@ class User < ApplicationRecord
 
          acts_as_paranoid
 
-         attachment :image
+         attachment :profile_image
+
 end
