@@ -1,50 +1,83 @@
-<div class="container">
+<div class="container activnewtoukou">
 	<div class="row post-new-row1">
 		<div class="col-md-2 post-new-user">
 			<div class="post-new-title">
-				<h3>TODAY ACTIVE!</h3>
+				<h2>TODAY ACTIVE!</h2>
 			</div>
 			<div class="post-new-userimage">
-				<%= attachment_image_tag @post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "20x20" %>
+				<%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "170x170" %>
 			</div>
 			<div class="post-new-username">
-				<%= @user.username %>
+				<p><%= @user.username %></p>
 			</div>
 			<div class="post-new-email">
-				<%= @user.email %>
+				<p><%= @user.email %></p>
 			</div>
 		</div>
 		<div class="col-md-10 post-new-main">
 			<div class="container post-new-2">
 				<div class="row post-new-row2">
 					<div class="col-md-12 post-new-image">
-
+						<%= form_with model: @post, local: true  do |form| %>
+						  	<%= form.file_field :images, multiple: true %><br>
 					</div>
 				</div>
 			</div>
 			<div class="container post-new-3">
 				<div class="row post-new-row3">
 					<div class="col-md-12 post-new-show">
-							<h4 class="new-location"> 活動場所 </h4>
-							<%= form_for @post do |f| %>
-							<div class="post-new-location">
-								<%= f.text_field :location %>
-							</div>
-							<h4 class="new-genre"> ジャンル選択 </h4>
-							<div class="post-new-genre">
-							<%= f.select(:genre, [["キャンプ", "キャンプ"], ["登山", "登山"], ["サイクリング", "サイクリング"], ["サーフィン", "サーフィン"], ["ダイビング", "ダイビング"], ["カヌー、カヤック","カヌー、カヤック"], ["ヨット","ヨット"], ["釣り","釣り"], ["スノーボード、スキー","スノーボード、スキー"], ["ボルダリング","ボルダリング"], ["スカイダイビング","スカイダイビング"], ["その他","その他"]]) %>
-							</div>
-							<h4 class="new-title"> タイトル </h4>
-							<div class="post-new-title">
-								<%= f.text_field :title %>
-							</div>
-							<h4 class="new-posted_details"> 投稿詳細 </h4>
-							<div class="post-new-posted_details">
-								<%= f.text_field :posted_details %>
-							</div>
-							<div class="post-new-up">
-							<%= f.submit "ACTIVE UP", class:"btn btn-primary" %>
-							</div>
+						<table class="post-new-table-main">
+							<thead class="post-new-table-head">
+								<tr class="post-new-table-head-title">
+									<th class="post-new-table-head-title-th" colspan="2">
+										<h2>ACTIVE OPTION</h2>
+									</th>
+									<th>
+									</th>
+								</tr>
+							</thead>
+							<tbody class="post-new-table-body">
+								<tr>
+									<th class="new-location">
+										<h4 class="post-new-table-head-title-h4"> 活動場所 </h4>
+									</th>
+									<td class="post-new-location">
+										<%= form.text_field :location %>
+									</td>
+								</tr>
+								<tr>
+									<th class="new-genre">
+										<h4 class="post-new-table-head-title-h4"> ジャンル選択 </h4>
+									</th>
+									<td class="post-new-genre">
+										<%= form.select(:genre, [["キャンプ", "キャンプ"], ["登山", "登山"], ["サイクリング", "サイクリング"], ["サーフィン", "サーフィン"], ["ダイビング", "ダイビング"], ["カヌー、カヤック","カヌー、カヤック"], ["ヨット","ヨット"], ["釣り","釣り"], ["スノーボード、スキー","スノーボード、スキー"], ["ボルダリング","ボルダリング"], ["スカイダイビング","スカイダイビング"], ["その他","その他"]]) %>
+									</td>
+								</tr>
+								<tr>
+									<th class="new-title">
+										<h4 class="post-new-table-head-title-h4"> タイトル </h4>
+									</th>
+									<td class="post-new-title-field">
+										<%= form.text_field :title %>
+									</td>
+								<tr>
+									<th class="new-posted_details">
+										<h4 class="post-new-table-head-title-h4"> 投稿詳細 </h4>
+									</th>
+									<td class="post-new-posted_details">
+										<%= form.text_area :posted_details %>
+									</td>
+								</tr>
+							</tbody>
+							<tfoot class="post-new-table-foot">
+								<tr class="post-new-table-foot-tr">
+									<th class="post-new-up" colspan="2">
+									<%= form.submit "ACTIVE UP", class:"btn btn-primary" %>
+									</th>
+									<th></th>
+								</tr>
+							</tfoot>
+						</table>
 						<% end %>
 					</div>
 				</div>
@@ -54,9 +87,4 @@
 </div>
 
 
-
-
-<%= form_with model: @post, local: true  do |form| %>
-							  <%= form.file_field :images, multiple: true %><br>
-							  <%= form.submit %>
-						<% end %>
+	

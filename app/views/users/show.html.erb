@@ -1,31 +1,90 @@
-
-	<div class="container mypage">
-		<h2>マイページ</h2>
+<div class="container mypage">
 		<div class="row">
 			<div class="col-md-12 mypage-main">
-				<div class="mypage-username">
-					<%= @user.username %>
-				</div>
-				<div class="mypage-image">
-					<%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "/images/no_image.jpg", size: "150x150" %>
-				</div>
-				<div class="mypage-email">
-					<%= @user.email %>
-				</div>
-				<span class="mypage-introduction">
-					<%= @user.introduction %>
-				</span>
-				<span class="mypage-edit">
-					<%= link_to "プロフィール編集", edit_user_path(@user.id), class:"btn btn-primary" %>
-				</span>
-				<span class="mypage-sign_out">
-					<%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %>
-		            <i class="icons3">
-		            <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
-		            </i>
-		            <% end %>
-				</span>
+				<table class="usershow-option-table">
+					<caption class="usershow-option-caption"><h3> マイプロフィール </h3></caption>
+					<tbody class="usershow-option-tbody">
+						<tr>
+							<td class="usershow-option-tbody-td1">
+								<div class="mypage-username">
+									<%= @user.username %>
+								</div>
+							</td>
+							<td class="usershow-option-tbody-td3" rowspan="3">
+								<span class="mypage-introduction">
+									<%= @user.introduction %>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="usershow-option-tbody-td2">
+								<div class="mypage-image">
+									<%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "/images/no_image.jpg", size: "200x200" %>
+								</div>
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="usershow-option-tbody-td4">
+								<div class="mypage-email">
+									<%= @user.email %>
+								</div>
+							</td>
+							<td>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot class="usershow-option-table-tfoot">
+						<tr>
+							<th class="usershow-option-tfoot-th" colspan="2">
+								<div class="pozition">
+									<span class="mypage-edit">
+										<%= link_to "プロフィール編集", edit_user_path(@user.id), class:"btn btn-primary" %>
+									</span>
+									<span class="mypage-sign_out">
+										<%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %>
+							            <i class="icons3">
+							            	<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span><rt>ログアウト</rt><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+							            </i>
+							            <% end %>
+									</span>
+								</div>
+							</th>
+							<th></th>
+						</tr>
+					</tfoot>
+				</table>
 			</div>
 		</div>
-		
-	</div>
+		<hr class="mypage-hr">
+		<div class="row mypage-index-row1">
+			<div class="col-md-9 mypage-index">
+				<div class="mypage-index-title">
+					<h3>投稿一覧</h3>
+				</div>
+				<div class="row mypage-index-row2">
+					<% @posts.each do |post| %>
+					<div class="col-md-3 mypage-index-main">
+						<div class="mypage-index-main-size">
+							<% if post.images.attached? %>
+						    	<%= image_tag post.images.first, size: "100x100" %>
+							<% end %>
+						</div>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

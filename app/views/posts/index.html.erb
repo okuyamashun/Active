@@ -17,9 +17,7 @@
 					<div class="card-footer"></div>
 
 					<% if post.images.attached? %>
-					  <% post.images.each do |image| %>
-					    <%= image_tag image %> <br>
-					  <% end %>
+					    <%= image_tag post.images.first %> <br>
 					<% end %>
 				</div>
 			</div>

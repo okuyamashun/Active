@@ -4,5 +4,7 @@ class Post < ApplicationRecord
 
 	has_many_attached :images
 
+	attachment :profile_image
+
 
 end

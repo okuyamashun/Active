@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.page(params[:page]).reverse_order
-		@users = User.all
+		@user = current_user
 
 	end
 
