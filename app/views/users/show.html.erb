@@ -57,29 +57,25 @@
 			</div>
 		</div>
 		<hr class="mypage-hr">
-		<div class="row mypage-index-row1">
-			<div class="col-md-9 mypage-index">
-				<div class="mypage-index-title">
-					<h3>投稿一覧</h3>
-				</div>
-				<div class="row mypage-index-row2">
-					<% @posts.each do |post| %>
-					<div class="col-md-3 mypage-index-main">
-						<div class="mypage-index-main-size">
-							<% if post.images.attached? %>
-						    	<%= image_tag post.images.first, size: "100x100" %>
-							<% end %>
-						</div>
-					</div>
-					<% end %>
-				</div>
+		<div class="row mypage-index-main-row">
+			<div class="col-md-8 mypage-index-main">
+				<table class="mypage-index-main-table">
+					<caption class="mypage-index-main-caption"><h3> 投稿一覧 </h3></caption>
+					<tbody class="mypage-index-main-tbody">
+						<tr class="mypage-index-main-tbody-tr">
+							<td class="mypage-index-main-tbody-td">
+								<% @posts.each do |post| %>
+									<% if post.images.attached? %>
+									    <%= image_tag post.images.first, size: "180x180" %>
+									<% end %>
+								<% end %>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 </div>
-
-
-
-
 
 
 

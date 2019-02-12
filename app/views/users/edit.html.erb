@@ -4,13 +4,15 @@
 		EDIT
 	</h2>
 	<div class="row mypage-edit-row">
-		<div class="col-md-8 mypage-edit">
-			<%= form_for(@user) do |f| %>
+		<%= form_for(@user) do |f| %>
+			<div class="col-md-4 mypage-edit-image">
 				<div class="mypage-profile-image">
 					<%= f.attachment_field :profile_image  %>
 				</div>
+			</div>
+			<div class="col-md-8 mypage-edit-option-edit">
 				<div class="mypage-edit-name">
-					<h4 class="mypage-edit-name-title">USER名</h4>
+					<h3 class="mypage-edit-name-title">USER名</h3>
 					<div class="mypage-edit-username">
 				    	<%= f.text_field :username %>
 					</div>
@@ -18,13 +20,13 @@
 				<div class="mypage-edit-introduction">
 				    <h4 class="mypage-edit-introduction-title">マイプロフィール</h4>
 				    <div class="mypage-edit-introduction-field">
-				    	<%= f.text_field :introduction %>
+				    	<%= f.text_area :introduction %>
 					</div>
 				</div>
 				<div class="mypage-edit-up">
 				    <%= f.submit "UP", class: "btn btn-primary" %>
 				</div>
-		    <% end %>
-    	</div>
+    		</div>
+    	<% end %>
 	</div>
 </div>

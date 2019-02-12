@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
+/*post-new*/
 
 .post-new-title{
 	text-align: center;
@@ -71,6 +71,95 @@
 		width: 600px;
 		height: 200px;
 		margin-right: 15px;
+}
+
+
+        /*post-index*/
+
+.enko-image1{
+	background-image: url(enko2.jpg);
+	background-attachment: fixed;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+}
+
+.posts-index-main-container{
+	column-count: 4;
+	padding-right: 135px;
+	padding-left: 135px;
+	background-color: transparent;
+	background-size: top;
+	height: 100%;
+	width: 100%;
+}
+.post-index-p2{
+	font-size: 32px;
+	text-align: center;
+	letter-spacing: 0.1em;
+	padding-top:30px;
+	padding-bottom: 35px;
+	font-family: serif;
+	margin-bottom: 0;
+	background-image: url(enko2.jpg);
+	background-attachment: fixed;
+}
+
+.posts-index-tbody-1-td{
+	width: 1170px;
+	height: 100%;
+}
+
+.posts-index-table-2{
+	background-color: #FFF;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	box-shadow: rgba(0,0,0,0.5) 3px 3px 10px;
+	margin: 5px;
+	width: 280px;
+	height: 100%;
+	display: inline-block;
+}
+.posts-index-thead-th-1{
+	width: 35px;
+}
+.card-header-top-image{
+	margin: 7px 5px 6px 15px;
+}
+.card-header-top-image-username{
+	font-size: 18px;
+	text-align: center;
+	padding-right: 52px;
+	font-weight: 600;
+	font-family: serif;
+}
+.post-card-body-image{
+	width: 260px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.posts-index-thead-th-2{
+	text-align: center;
+}
+.posts-index-tbody-2-td2{
+	padding: 20px;
+	font-size: 15px;
+}
+.posts-index-tbody-2-td2-h4{
+	text-align: center;
+}
+.posts-title-title{
+	letter-spacing: 0.04em;
+	font-family: serif;
+}
+.posts-index-thead-th-2-h4{
+	margin-right: 53px;
+}
+.post-card-footer-text{
+	text-align: right;
+	padding: 10px;
 }
 
 
