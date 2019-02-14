@@ -2,14 +2,16 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user!
 
-	def show
+	 def show
     @user = User.find(params[:id])
-    @posts = Post.all
+    @post = Post.find(params[:id])
     @post = @user.posts
+    @search = Post.ransack(params[:q])
   	end
 
   	def edit
     @user = User.find(params[:id])
+    @search = Post.ransack(params[:q])
   	end
 
   	def update

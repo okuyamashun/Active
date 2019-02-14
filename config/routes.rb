@@ -12,9 +12,16 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy" 
   end
 
-  resources :users, only:[:show, :edit, :update]
+  resources :users, only:[:show, :edit, :update ]
 
-  resources :posts, only:[:new, :show, :create, :index, :destroy ]
+  resources :posts, only:[:new, :show, :create, :index, :destroy ] do
+
+    resources :comments, only:[:create, :destroy ]
+
+  end
+
+
+  get "search", to: "posts#search"
 
   resources :images
 

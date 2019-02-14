@@ -85,7 +85,7 @@ gem 'material_icons'
 
 gem 'rmagick'
 
-
+gem 'pry-byebug'
 
 
 

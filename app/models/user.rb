@@ -5,7 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :posts, dependent: :delete_all
+
          has_many :follow, dependent: :delete_all
+
+         has_many :comment, dependent: :delete_all
 
          acts_as_paranoid
 

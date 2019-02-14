@@ -11,20 +11,37 @@
 
   <body>
     <header class="clearfix">
-        <span class="icon">
-          <div class="icons1">
-            <i class="material-icons">assignment_ind</i>
-          </div>
-          <div class="icons2">
-            <i class="material-icons">border_color</i>
-          </div>
-        </span>
+      <% if user_signed_in? %>
+          <%= link_to user_path(current_user) do %>
+            <span class="glyphicon glyphicon-user icon1" aria-hidden="true"></span>
+          <% end %>
 
-        <div class="active">
-          <span>
-            <ruby>ACTIVE<rt class="active-rt">アクティブ</rt></ruby>
-          </span>
+          <%= link_to new_post_path do %>
+            <span class="glyphicon glyphicon-pencil icon2" aria-hidden="true"></span>
+          <% end %>
+        <% else %>
+        <div class="icon1"></div>
+        <div class="icon2"></div>
+        <div class="icon3"></div>
+
+        <% end %>
+
+        <%= link_to posts_path do %>
+        <span class="header-title">
+          <ruby>ACTIVE<rt class="active-rt">アクティブ</rt></ruby>
+        </span>
+        <% end %>
+        <% if user_signed_in? %>
+        <div class="kensaku">
+          <%= search_form_for @search, url:search_path do |f| %>
+            <%= f.search_field :title_cont, class: "serch-main"%>
+          <%= f.submit "検索", class: "search-btn"%>
+          <% end %>
+          <% else %>
+
+          <% end %>
         </div>
+
     </header>
     
     <%= yield %>

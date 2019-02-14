@@ -1,0 +1,103 @@
+<div class="clearfix">
+	<div class="post-show-main">
+		<table class="post-show-main-table1">
+			<tbody class="post-show-main-table1-tbody">
+				<tr class="post-show-main-table1-tbody-tr">
+					<td class="post-show-main-table1-tbody-td1">
+						<div class="post-show-main-profile_image">
+							<%= attachment_image_tag @post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "80x80" %>
+						</div>
+						<div class="post-show-main-username">
+							<%= @post.user.username %>
+						</div>
+					</td>
+					<td class="post-show-main-table1-tbody-td3">
+						<div class="post-show-main-title">
+							<h1 class="post-show-main-title-h2"><%= @post.title %></h1>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="post-show-main-created_at">
+			<small><%= @post.created_at.strftime('%Y/%m/%d') %></small>
+		</div>
+
+		<div class="post-show-main-images">
+			<% if @post.images.attached? %>
+				<%= image_tag @post, size: "260x260"  %> <br>
+			<% end %>
+		</div>
+		<table class="post-show-main-table2">
+			<tbody class="post-show-main-table2-tbody">
+				<tr>
+					<td class="post-show-main-table2-tbody-td1">
+						フォローbtn
+					</td>
+					<td rowspan="3">
+						<div class="post-show-main-posted_details">
+							<%= @post.posted_details %>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p class="post-show-main-genre-p"> --ジャンル-- </p>
+						<div class="post-show-main-genre">
+							<%= @post.genre %>
+						</div>
+					</td>
+					<td>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p class="post-show-main-location-p"> --活動場所-- </p>
+						<div class="post-show-main-location">
+							<%= @post.location %>
+						</div>
+					</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="post-show-comments clearfix">
+		<h3 class="post-show-comments-title"> コメント・質問 </h3>
+		<div class="post-show-comments-main">
+			<% @post.comment.each do |c| %>
+				<%= attachment_image_tag c.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
+				<%= c.comment %>
+				<%= link_to "削除", comment_path(c.id), method: :delete,"data-confirm" => "本当に消しますか？" %>
+			<% end %><br>
+			<%= form_for [@post, @comment] do |f| %>
+				<div class="row">
+					<div class="col-sm-12">
+						<%= f.hidden_field :post_id %>
+						<%= f.text_area :comment, class: "form-control",placeholder: "コメントをここに" %>
+					</div>
+				</div>
+				<%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

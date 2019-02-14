@@ -64,9 +64,11 @@
 					<tbody class="mypage-index-main-tbody">
 						<tr class="mypage-index-main-tbody-tr">
 							<td class="mypage-index-main-tbody-td">
-								<% @posts.each do |post| %>
-									<% if post.images.attached? %>
-									    <%= image_tag post.images.first, size: "180x180" %>
+								<% @post.each do |post| %>
+									<%= link_to post_path(post.id) do %>
+										<% if post.images.attached? %>
+										    <%= image_tag post.images.first, size: "180x180" %>
+										<% end %>
 									<% end %>
 								<% end %>
 							</td>
