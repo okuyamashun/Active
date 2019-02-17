@@ -4,9 +4,12 @@ class Post < ApplicationRecord
 
 	has_many_attached :images
 
-	has_many :comment
+	has_many :comments
+
+	has_many :favorites
+
+	has_many :favorited_users, through: :favorites, source: :user
 
 	attachment :profile_image
-
 
 end

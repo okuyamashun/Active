@@ -13,8 +13,8 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@images = @post.images.build
 		@comment = Comment.new(post_id: @post.id)
-		@user = current_user
 		@search = Post.ransack(params[:q])
+		@favorites = Favorite.new
 	end
 
 	def create
@@ -40,6 +40,7 @@ class PostsController < ApplicationController
 	end
 	def search
 		@search = Post.ransack(params[:q])
+		@search.sorts = 'id asc' if @search.sorts.empty?
 		@searchs = @search.result(distinct: true)
 	end
 
@@ -48,6 +49,10 @@ class PostsController < ApplicationController
 private
 	def post_params
 		params.require(:post).permit(:location, :genre, :title, :posted_details, images:[], comment_attributes: [ :comment, :created_at ])
+		
+	end
+
+	def search_params
 		params.require(:q).permit!
 	end
 

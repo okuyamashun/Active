@@ -4,12 +4,14 @@
 			<tbody class="post-show-main-table1-tbody">
 				<tr class="post-show-main-table1-tbody-tr">
 					<td class="post-show-main-table1-tbody-td1">
+						<%= link_to user_path(@post.user_id) do %>
 						<div class="post-show-main-profile_image">
 							<%= attachment_image_tag @post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "80x80" %>
 						</div>
 						<div class="post-show-main-username">
 							<%= @post.user.username %>
 						</div>
+						<% end %>
 					</td>
 					<td class="post-show-main-table1-tbody-td3">
 						<div class="post-show-main-title">
@@ -61,41 +63,42 @@
 				</tr>
 			</tbody>
 		</table>
-	</div>
 
-	<div class="post-show-comments clearfix">
-		<h3 class="post-show-comments-title"> コメント・質問 </h3>
-		<div class="post-show-comments-main">
-			<% @post.comment.each do |c| %>
-				<%= attachment_image_tag c.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
-				<%= c.comment %>
-				<%= link_to "削除", comment_path(c.id), method: :delete,"data-confirm" => "本当に消しますか？" %>
-			<% end %><br>
-			<%= form_for [@post, @comment] do |f| %>
-				<div class="row">
-					<div class="col-sm-12">
-						<%= f.hidden_field :post_id %>
-						<%= f.text_area :comment, class: "form-control",placeholder: "コメントをここに" %>
-					</div>
-				</div>
-				<%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+		<div class="post-show-main-favorits">
+			<% if current_user.already_favorited?(@post) %>
+			  <ruby><%= button_to '⭐️', post_favorite_path(@post.id), method: :delete, class: "btn btn-lg btn-base-1 mt-20 pull-right post-show-main-favorit-1 suter"%><rt><%= @post.favorited_users.count %></rt></ruby>
+			<% else %>
+			  <ruby><%= button_to '☆', post_favorites_path(@post.id), class: "btn btn-lg btn-base-1 mt-20 pull-right post-show-main-favorit-1"%><rt><%= @post.favorited_users.count %></rt></ruby>
 			<% end %>
 		</div>
 	</div>
+
+	<div class="post-show-comments clearfix">
+		<div><h3 class="post-show-comments-title"> コメント・質問 </h3></div>
+		<div class="post-show-comments-main">
+			<% @post.comments.each do |c| %>
+			<div class="post-show-comments-main-comment">
+				<%= attachment_image_tag c.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
+				<%= c.comment %>
+				
+				<%= link_to "削除", post_comment_path(c.id), method: :delete,"data-confirm" => "本当に消しますか？" %>
+				
+			</div><br>
+			<% end %>
+		</div>
+			<div class="sousinbotan">
+				<%= form_for [@post, @comment] do |f| %>
+					<div class="row">
+						<div class="col-sm-12">
+							<%= f.hidden_field :post_id %>
+							<%= f.text_area :comment, class: "form-control comment-sousin",placeholder: "質問・コメントをここに" %>
+						</div>
+					</div>
+					<%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+				<% end %>
+			</div>
+	</div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

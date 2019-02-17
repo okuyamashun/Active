@@ -5,6 +5,8 @@
 
 /*post-new*/
 
+
+
 .post-new-title{
 	text-align: center;
 	letter-spacing: 0.3em;
@@ -76,41 +78,30 @@
 
         /*post-index*/
 
-.enko-image1{
-	background-image: url(enko2.jpg);
+
+.index-main{
+	background-image: url(beach1.jpg);
 	background-attachment: fixed;
 	background-size: cover;
 	height: 100%;
 	width: 100%;
+	padding-right: 120px;
+	padding-left: 120px;
 }
-
-.posts-index-main-container{
+.index-main-card-container{
 	column-count: 4;
-	padding-right: 135px;
-	padding-left: 135px;
-	background-color: transparent;
-	background-size: top;
-	height: 100%;
-	width: 100%;
 }
-.post-index-p2{
-	font-size: 32px;
+.index-title{
 	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 10px;
 	letter-spacing: 0.1em;
-	padding-top:30px;
-	padding-bottom: 35px;
 	font-family: serif;
-	margin-bottom: 0;
-	background-image: url(enko2.jpg);
-	background-attachment: fixed;
 }
-
-.posts-index-tbody-1-td{
-	width: 1170px;
-	height: 100%;
+.post-index-span{
+	font-size: 30px;
 }
-
-.posts-index-table-2{
+.index-main-card{
 	background-color: #FFF;
 	border-top-right-radius: 15px;
 	border-top-left-radius: 15px;
@@ -120,112 +111,40 @@
 	margin: 5px;
 	width: 280px;
 	height: 100%;
+	padding-top: 7px;
 	display: inline-block;
 }
-.posts-index-thead-th-1{
-	width: 35px;
+.index-main-card-span{
+	padding-left: 15px;
 }
-.card-header-top-image{
-	margin: 7px 5px 6px 15px;
-}
-.card-header-top-image-username{
-	font-size: 18px;
+.index-main-card-posts-image{
 	text-align: center;
-	padding-right: 52px;
-	font-weight: 600;
-	font-family: serif;
+	padding-top: 5px;
 }
-.post-card-body-image{
-	width: 250px;
-	padding-right: 10px;
-	padding-left: 10px;
-}
-.posts-index-thead-th-2{
-	text-align: center;
-}
-.posts-index-tbody-2-td2{
-	padding: 20px;
-	font-size: 15px;
-}
-.posts-index-tbody-2-td2-h4{
-	text-align: center;
-}
-.posts-title-title{
+.index-main-card-posts-title{
+	padding-top: 5px;
+	padding-left: 20px;
 	letter-spacing: 0.04em;
 	font-family: serif;
 }
-.posts-index-thead-th-2-h4{
-	margin-right: 53px;
+.index-main-card-posts-main-title{
+	padding-right: 20px;
+	padding-left: 20px;
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 18px;
 }
-.post-card-footer-text{
+.index-main-card-posts-created_at{
 	text-align: right;
-	padding: 10px;
+	padding-right: 20px;
+	margin-bottom: 10px;
 }
-
-
-.posts-index-table-2{
-  border:7px solid transparent; 
-   -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
-  transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+.index-main-comment-ster{
+	padding-right: 5px;
 }
-
-.posts-index-table-2::before {
-  content: '';
-  position: absolute;
-  left: 0px;
-  bottom:0px;
-  z-index:-1;
-  width: 0%;
-  height:1px;
-  background: #6098FF;
-  box-shadow: inset 0px 0px 0px #6098FF;
-  display: block;
-  -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
-  transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
+.index-main-comment-ster-span1{
+	font-size: 18px;
 }
-
-.posts-index-table-2:hover::before {
-  width:100%;
-}
-
-.posts-index-table-2::after {
-  content: '';
-  position: absolute;
-  right: 0px;
-  top:0px;
-  z-index:-1;
-  width: 0%;
-  height:1px;
-  background: #6098FF;
-  -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
-  transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
-}
-.posts-index-table-2:hover::after {
-  width:100%;
-}
-.posts-index-table-2:hover{
-  border-left:7px solid #FF00FF;
-  border-right:7px solid #FF00FF;
-  border-top:7px solid #FF00FF;
-  border-bottom:7px solid #FF00FF;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
       /*post-show*/
@@ -302,15 +221,23 @@
   	left: 10px;
   	overflow: auto;
 }
-
+.post-show-main-favorits{
+	text-align: right;
+	height: 60px;
+}
+input.btn-lg{
+	padding: 0;
+	font-size: 30px;
+}
 
 
 .post-show-comments{
 	float: left;
 	width: 420px;
-	height: 500px;
+	height: 600px;
 	margin-left: 30px;
 	margin-top: 30px;
+	margin-bottom: 30px;
 	border-top-right-radius: 15px;
 	border-top-left-radius: 15px;
 	border-bottom-right-radius: 15px;
@@ -320,6 +247,97 @@
 .post-show-comments-title{
 	text-align: center;
 }
+.post-show-comments-main{
+	display: block;
+	overflow:auto ;
+	height: 450px;
+}
+.post-show-comments-main-comment{
+	margin-left: 10px;
+}
+.post-show-comments-main-comment-image{
+	width: 40px;
+	height: 40px;
+}
+.sousinbotan{
+	position: absolute;
+	top:642px;
+	display: block;
+}
+#comment_comment{
+	width: 420px;
+}
+
+
+     /*post-search*/
+
+.search-main{
+	background-image: url(yama1.jpg);
+	background-attachment: fixed;
+	background-size: cover;
+	height:auto!important;
+	width: 100%;
+	padding-right: 120px;
+	padding-left: 120px;
+	height: 100%;
+	min-height: 100%;
+}
+.search-main-card-container{
+	column-count: 4;
+}
+.searchtitle{
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+.searchtitle-span{
+	font-size: 30px;
+	
+}
+.search-main-card{
+	background-color: #FFF;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	box-shadow: rgba(0,0,0,0.5) 3px 3px 10px;
+	margin: 5px;
+	width: 280px;
+	height: 100%;
+	padding-top: 7px;
+	display: inline-block;
+}
+.search-main-card-span{
+	padding-left: 15px;
+}
+.search-main-card-posts-image{
+	text-align: center;
+	padding-top: 5px;
+}
+.search-main-card-posts-title{
+	padding-top: 5px;
+	padding-left: 20px;
+	letter-spacing: 0.04em;
+	font-family: serif;
+}
+.search-main-card-posts-main-title{
+	padding-right: 20px;
+	padding-left: 20px;
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 18px;
+}
+.search-main-card-posts-created_at{
+	text-align: right;
+	padding-right: 20px;
+	margin-bottom: 10px;
+}
+
+
+
+
+
+
 
 
 

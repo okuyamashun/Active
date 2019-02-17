@@ -37,6 +37,7 @@
 					<tfoot class="usershow-option-table-tfoot">
 						<tr>
 							<th class="usershow-option-tfoot-th" colspan="2">
+								<% if @user = current_user %>
 								<div class="pozition">
 									<span class="mypage-edit">
 										<%= link_to "プロフィール編集", edit_user_path(@user.id), class:"btn btn-primary" %>
@@ -49,6 +50,7 @@
 							            <% end %>
 									</span>
 								</div>
+								<% end %>
 							</th>
 							<th></th>
 						</tr>
@@ -78,8 +80,6 @@
 			</div>
 		</div>
 </div>
-
-
 
 
 

@@ -1,69 +1,35 @@
-
-<p class="post-index-p2">---Recently Active---</p>
-	<div class="enko-image1">
-<div class="posts-index-main-container">
-
-		<table class="posts-index-table-1">
-			<tbody class="posts-index-tbody-1">
-				<tr class="posts-index-tbody-1-tr">
-					<td class="posts-index-tbody-1-td">
-						<% @posts.each_with_index do |post| %>
-							<%= link_to post_path(post.id) do %>
-							<table class="posts-index-table-2 ">
-								<thead class="posts-index-thead">
-									<tr class="posts-index-thead-tr">
-										<th class="posts-index-thead-th-1">
-											<div class="card-header-top-image">
-												<rt>
-													<%= attachment_image_tag post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
-												</rt>
-											</div>
-
-										</th>
-										<th class="posts-index-thead-th-2">
-											<div class="card-header-top-image-username">
-												<%= post.user.username %>
-											</div>
-										</th>
-									</tr>
-								</thead>
-								<tbody class="posts-index-tbody-2">
-									<tr class="posts-index-tbody-2-tr">
-										<td class="posts-index-tbody-2-td" colspan="2">
-											<div class="post-card-body-image">
-												<% if post.images.attached? %>
-											    	<%= image_tag post.images.first, size: "250x250"  %> <br>
-												<% end %>
-											</div>
-										</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td class="posts-index-tbody-2-td2" colspan="2">
-											<p class="posts-title-title">Title</p>
-											<h4 class="posts-index-tbody-2-td2-h4"><%= post.title %></h4>
-										</td>
-										<td></td>
-									</tr>
-								</tbody>
-								<tfoot class="posts-index-tfoot">
-									<tr class="posts-index-tfoot-tr">
-										<td class="posts-index-tfoot-td" colspan="2">
-											<div class="post-card-footer-text">
-												<small><%= post.created_at.strftime('%Y/%m/%d') %></small>
-											</div>
-										</td>
-										<td></td>
-									</tr>
-								</tfoot>
-							</table>
-							<% end %>
-						<% end %>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-</div>
+<div class="index-main">
+	<div class="index-title">
+		<span class="post-index-span">---Recently Active---</span>
+	</div>
+	<div class="index-main-card-container">
+		<% @posts.each_with_index do |post| %>
+			<%= link_to post_path(post.id) do %>
+				<div class="index-main-card">
+					<span class="index-main-card-span">
+						<%= attachment_image_tag post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
+					</span>
+					<span class="index-main-card-username"><%= post.user.username %></span>
+					<div class="index-main-card-posts-image">
+						<% if post.images.attached? %>
+						<%= image_tag post.images.first, size: "250x250"  %> <br>
+					<% end %>
+					</div>
+					<p class="index-main-card-posts-title">Title</p>
+					<div class="index-main-card-posts-main-title">
+						<%= post.title %>
+					</div>
+					<div class="index-main-card-posts-created_at">
+						<div class="index-main-comment-ster">
+							<span class="index-main-comment-ster-span1">⭐️</span><ruby><rt><%= post.favorited_users.count %></rt></ruby>
+							<span class="index-main-comment-ster-span1">💬</span><ruby><rt><%= post.comments.count %></rt></ruby>
+						</div>
+						<small><%= post.created_at.strftime('%Y/%m/%d') %></small>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
 </div>
 
 

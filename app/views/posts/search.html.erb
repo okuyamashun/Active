@@ -1,7 +1,58 @@
-<div class="container">
-	<% @searchs.each do |search| %>
-	<div class="row">
-		<%= search.title %>
+<div class="search-main">
+	<div class="searchtitle">
+		<span class="searchtitle-span">検索結果</span>
 	</div>
-	<% end %>
+	<div class="search-main-card-container">
+		<% @searchs.each do |search| %>
+		<%= link_to post_path(search.id) do %>
+			<div class="search-main-card">
+				<span class="search-main-card-span">
+					<%= attachment_image_tag search.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
+				</span>
+				<span><%= search.user.username %></span>
+				<div class="search-main-card-posts-image">
+					<% if search.images.attached? %>
+					<%= image_tag search.images.first, size: "250x250"  %> <br>
+				<% end %>
+				</div>
+				<p class="search-main-card-posts-title">Title</p>
+				<div class="search-main-card-posts-main-title">
+					<%= search.title %>
+				</div>
+				<div class="search-main-card-posts-created_at">
+					<span>
+						⭐️<ruby><rt><%= search.favorited_users.count %></rt></ruby>
+						<small><%= search.created_at.strftime('%Y/%m/%d') %></small>
+					</span>
+				</div>
+			</div>
+			<% end %>
+		<% end %>
+		
+	</div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
