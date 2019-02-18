@@ -49,6 +49,21 @@
 			</div>
 		</div>
 	</div>
-
-
 </div>
+
+<% if user_signed_in? %>
+<%= render 'follow_form'  %>
+<% end %>
+<section class="stats">
+  <%= render 'users/stats' %>
+</section>
+
+
+
+
+
+
+
+
+
+
