@@ -1,88 +1,54 @@
-<div class="container mypage">
-		<div class="row">
-			<div class="col-md-12 mypage-main">
-				<table class="usershow-option-table">
-					<caption class="usershow-option-caption"><h3> マイプロフィール </h3></caption>
-					<tbody class="usershow-option-tbody">
-						<tr>
-							<td class="usershow-option-tbody-td1">
-								<div class="mypage-username">
-									<%= @user.username %>
-								</div>
-							</td>
-							<td class="usershow-option-tbody-td3" rowspan="3">
-								<span class="mypage-introduction">
-									<%= @user.introduction %>
-								</span>
-							</td>
-						</tr>
-						<tr>
-							<td class="usershow-option-tbody-td2">
-								<div class="mypage-image">
-									<%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "/images/no_image.jpg", size: "200x200" %>
-								</div>
-							</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td class="usershow-option-tbody-td4">
-								<div class="mypage-email">
-									<%= @user.email %>
-								</div>
-							</td>
-							<td>
-							</td>
-						</tr>
-					</tbody>
-					<tfoot class="usershow-option-table-tfoot">
-						<tr>
-							<th class="usershow-option-tfoot-th" colspan="2">
-								<% if @user = current_user %>
-								<div class="pozition">
-									<span class="mypage-edit">
-										<%= link_to "プロフィール編集", edit_user_path(@user.id), class:"btn btn-primary" %>
-									</span>
-									<span class="mypage-sign_out">
-										<%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %>
-							            <i class="icons3">
-							            	<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span><rt>ログアウト</rt><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
-							            </i>
-							            <% end %>
-									</span>
-								</div>
-								<% end %>
-							</th>
-							<th></th>
-						</tr>
-					</tfoot>
-				</table>
+<div class="mypage-main clearfix">
+	<div class="mypage-main-user clearfix">
+		<h3 class="mypage-main-user-title">マイプロフィール</h3>
+		<div class="mypage-main-user-option">
+			<div class="mypage-main-user-option2">
+				<div class="mypage-main-user-option-username">
+					<span><%= @user.username %></span>
+				</div>
+				<div class="mypage-main-user-option-image">
+					<span><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "/images/no_image.jpg", size: "200x200" %></span>
+				</div>
+				<div class="mypage-main-user-option-email">
+					<span><%= @user.email %></span>
+				</div>
 			</div>
 		</div>
-		<hr class="mypage-hr">
-		<div class="row mypage-index-main-row">
-			<div class="col-md-8 mypage-index-main">
-				<table class="mypage-index-main-table">
-					<caption class="mypage-index-main-caption"><h3> 投稿一覧 </h3></caption>
-					<tbody class="mypage-index-main-tbody">
-						<tr class="mypage-index-main-tbody-tr">
-							<td class="mypage-index-main-tbody-td">
-								<% @post.each do |post| %>
-									<%= link_to post_path(post.id) do %>
-										<% if post.images.attached? %>
-										    <%= image_tag post.images.first, size: "180x180" %>
-										<% end %>
-									<% end %>
-								<% end %>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+		<div class="mypage-main-user-introduction ">
+			<span class="mypage-main-user-introduction-introduction">
+				<%= @user.introduction %>
+			</span>
+		</div>
+		<div class="mypage-main-user-option-edit clearfix">
+			<span class="mypage-edit">
+				<%= link_to "プロフィール編集", edit_user_path(@user.id), class:"btn btn-primary" %>
+			</span>
+			<span class="mypage-sign_out">
+				<%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %>
+					<i class="icons3">
+						<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span><rt>ログアウト</rt><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+					</i>
+				<% end %>
+			</span>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="mypage-main-posts clearfix">
+		<div class="mypage-posts-index">
+			<h3 class="mypage-posts-index-title">投稿一覧</h3>
+			<div class="mypage-posts-index-image">
+				<% @post.each do |post| %>
+					<%= link_to post_path(post.id) do %>
+						<% if post.images.attached? %>
+					    <%= image_tag post.images.first, size: "180x180" %>
+						<% end %>
+					<% end %>
+				<% end %>
 			</div>
 		</div>
+	</div>
+
+
 </div>
-
-
-
-
-
-

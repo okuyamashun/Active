@@ -20,10 +20,11 @@
 					<%= search.title %>
 				</div>
 				<div class="search-main-card-posts-created_at">
-					<span>
-						⭐️<ruby><rt><%= search.favorited_users.count %></rt></ruby>
-						<small><%= search.created_at.strftime('%Y/%m/%d') %></small>
-					</span>
+					<div class="index-main-comment-ster">
+						<span class="index-main-comment-ster-span1">⭐️</span><ruby><rt><%= search.favorited_users.count %></rt></ruby>
+						<span class="index-main-comment-ster-span1">💬</span><ruby><rt><%= search.comments.count %></rt></ruby>
+					</div>
+					<small><%= search.created_at.strftime('%Y/%m/%d') %></small>
 				</div>
 			</div>
 			<% end %>

@@ -1,32 +1,31 @@
-<div class="container mypage-container">
-	<h2 class="mypage-edit-midasi">
-		マイページ<br>
-		EDIT
-	</h2>
-	<div class="row mypage-edit-row">
-		<%= form_for(@user) do |f| %>
-			<div class="col-md-4 mypage-edit-image">
-				<div class="mypage-profile-image">
-					<%= f.attachment_field :profile_image  %>
-				</div>
+<div class="mypage-edit-main clearfix">
+	<h2 class="mypage-edit-main-title">マイページ<br>EDIT</h2>
+	<%= form_for(@user) do |f| %>
+		<div class="mypage-edit-main-image">
+			<%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "/images/no_image.jpg", size: "200x200" %>
+			<%= f.attachment_field :profile_image  %>
+
+		</div>
+		<div class="mypage-edit-main-option">
+			<h3 class="mypage-edit-main-name-title">USER名</h3>
+			<div class="mypage-edit-main-username">
+				<%= f.text_field :username %>
 			</div>
-			<div class="col-md-8 mypage-edit-option-edit">
-				<div class="mypage-edit-name">
-					<h3 class="mypage-edit-name-title">USER名</h3>
-					<div class="mypage-edit-username">
-				    	<%= f.text_field :username %>
-					</div>
-				</div>
-				<div class="mypage-edit-introduction">
-				    <h4 class="mypage-edit-introduction-title">マイプロフィール</h4>
-				    <div class="mypage-edit-introduction-field">
-				    	<%= f.text_area :introduction %>
-					</div>
-				</div>
-				<div class="mypage-edit-up">
-				    <%= f.submit "UP", class: "btn btn-primary" %>
-				</div>
-    		</div>
-    	<% end %>
-	</div>
+			<h4 class="mypage-edit-main-introduction-title">マイプロフィール</h4>
+			<div class="mypage-edit-main-introduction">
+				<%= f.text_area :introduction %>
+			</div>
+			<div class="mypage-edit-up">
+				<%= f.submit "EDIT UP", class: "btn btn-primary" %>
+			</div>
+		</div>
+	<% end %>
 </div>
+
+
+
+
+
+
+
+

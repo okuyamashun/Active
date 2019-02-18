@@ -1,90 +1,67 @@
-<div class="container activnewtoukou">
-	<div class="row post-new-row1">
-		<div class="col-md-2 post-new-user">
-			<div class="post-new-title">
-				<h2>TODAY ACTIVE!</h2>
-			</div>
-			<div class="post-new-userimage">
-				<%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "170x170" %>
-			</div>
-			<div class="post-new-username">
-				<p><%= @user.username %></p>
-			</div>
-			<div class="post-new-email">
-				<p><%= @user.email %></p>
-			</div>
+<div class="clearfix post-new-main">
+	<div class="post-new-main-user">
+		<h2 class="post-new-main-user-title">TODAY ACTIVE!</h2>
+		<div class="post-new-userimage">
+			<img id="avatar_img_prev" src="#" class='hidden' />
+			<%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "170x170", class: 'avatar_present_img'%>
+			<div class="preview" /></div>
 		</div>
-		<div class="col-md-10 post-new-main">
-			<div class="container post-new-2">
-				<div class="row post-new-row2">
-					<div class="col-md-12 post-new-image">
-						<%= form_with model: @post, local: true  do |form| %>
-						  	<%= form.file_field :images, multiple: true %><br>
-					</div>
+			<p class="post-new-username"><%= @user.username %></p>
+			<p class="post-new-email"><%= @user.email %></p>
+	</div>
+	<div class="post-new-main-posts">
+			<div class="post-new-main-image">
+		<%= form_with model: @post, local: true  do |form| %>
+				<%= form.file_field :images, multiple: true %><br>
+			</div>
+			<h2 class="post-new-main-option-title">ACTIVE OPTION</h2>
+			<div class="post-new-main-option">
+				<div class="post-new-main-option-location">
+					<span class="post-option-title"> 活動場所 </span>
+					<span><%= form.text_field :location %></span>
+				</div>
+				<div class="post-new-main-option-genre">
+					<span class="post-option-title"> ジャンル選択 </span>
+					<span>
+						<%= form.select(:genre, [["キャンプ", "キャンプ"], ["登山", "登山"], ["サイクリング", "サイクリング"], ["サーフィン", "サーフィン"], ["ダイビング", "ダイビング"], ["カヌー、カヤック","カヌー、カヤック"], ["ヨット","ヨット"], ["釣り","釣り"], ["スノーボード、スキー","スノーボード、スキー"], ["ボルダリング","ボルダリング"], ["スカイダイビング","スカイダイビング"], ["その他","その他"]]) %>
+					</span>
+				</div>
+				<div class="post-new-main-option-post-title">
+					<span class="post-option-title"> タイトル </span>
+					<span> <%= form.text_field :title %> </span>
+				</div>
+				<div class="post-new-main-option-posted_details">
+					<span class="post-option-title tilte-posted_details"> 投稿詳細 </span>
+					<span> <%= form.text_area :posted_details %> </span>
+				</div>
+				<div class="post-new-main-option-post-new-up">
+					<span> <%= form.submit "ACTIVE UP",  id: 'post_img', class:"btn btn-primary" %> </span>
 				</div>
 			</div>
-			<div class="container post-new-3">
-				<div class="row post-new-row3">
-					<div class="col-md-12 post-new-show">
-						<table class="post-new-table-main">
-							<thead class="post-new-table-head">
-								<tr class="post-new-table-head-title">
-									<th class="post-new-table-head-title-th" colspan="2">
-										<h2>ACTIVE OPTION</h2>
-									</th>
-									<th>
-									</th>
-								</tr>
-							</thead>
-							<tbody class="post-new-table-body">
-								<tr>
-									<th class="new-location">
-										<h4 class="post-new-table-head-title-h4"> 活動場所 </h4>
-									</th>
-									<td class="post-new-location">
-										<%= form.text_field :location %>
-									</td>
-								</tr>
-								<tr>
-									<th class="new-genre">
-										<h4 class="post-new-table-head-title-h4"> ジャンル選択 </h4>
-									</th>
-									<td class="post-new-genre">
-										<%= form.select(:genre, [["キャンプ", "キャンプ"], ["登山", "登山"], ["サイクリング", "サイクリング"], ["サーフィン", "サーフィン"], ["ダイビング", "ダイビング"], ["カヌー、カヤック","カヌー、カヤック"], ["ヨット","ヨット"], ["釣り","釣り"], ["スノーボード、スキー","スノーボード、スキー"], ["ボルダリング","ボルダリング"], ["スカイダイビング","スカイダイビング"], ["その他","その他"]]) %>
-									</td>
-								</tr>
-								<tr>
-									<th class="new-title">
-										<h4 class="post-new-table-head-title-h4"> タイトル </h4>
-									</th>
-									<td class="post-new-title-field">
-										<%= form.text_field :title %>
-									</td>
-								<tr>
-									<th class="new-posted_details">
-										<h4 class="post-new-table-head-title-h4"> 投稿詳細 </h4>
-									</th>
-									<td class="post-new-posted_details">
-										<%= form.text_area :posted_details %>
-									</td>
-								</tr>
-							</tbody>
-							<tfoot class="post-new-table-foot">
-								<tr class="post-new-table-foot-tr">
-									<th class="post-new-up" colspan="2">
-									<%= form.submit "ACTIVE UP", class:"btn btn-primary" %>
-									</th>
-									<th></th>
-								</tr>
-							</tfoot>
-						</table>
-						<% end %>
-					</div>
-				</div>
-			</div>
-		</div>
+		<% end %>
 	</div>
 </div>
 
+<script>
+	$( document ).on('turbolinks:load', function() {
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+ 
+      reader.onload = function (e) {
+        $('#avatar_img_prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+ 
+  $("#post_img").change(function(){
+    $('#avatar_img_prev').removeClass('hidden');
+    $('.avatar_present_img').remove();
+    readURL(this);
+  });
+});
+</script>
 
-	
+
+
