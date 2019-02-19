@@ -1,76 +1,50 @@
-<div class="clearfix">
-	<div class="post-show-main">
-		<table class="post-show-main-table1">
-			<tbody class="post-show-main-table1-tbody">
-				<tr class="post-show-main-table1-tbody-tr">
-					<td class="post-show-main-table1-tbody-td1">
-						<%= link_to user_path(@post.user_id) do %>
-						<div class="post-show-main-profile_image">
-							<%= attachment_image_tag @post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "80x80" %>
-						</div>
-						<div class="post-show-main-username">
-							<%= @post.user.username %>
-						</div>
-						<% end %>
-					</td>
-					<td class="post-show-main-table1-tbody-td3">
-						<div class="post-show-main-title">
-							<h1 class="post-show-main-title-h2"><%= @post.title %></h1>
-						</div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<div class="post-show-main-created_at">
-			<small><%= @post.created_at.strftime('%Y/%m/%d') %></small>
+<div class="post-show clearfix">
+	<div class="post-show-main clearfix">
+		<div class="clearfix">
+			<div class="post-show-main-user">
+					<%= attachment_image_tag @post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "80x80" %>
+					<%= @post.user.username %>
+			</div>
+			<div class="post-show-main-title">
+				<span><%= @post.title %></span>
+			</div>
+			<div class="post-show-main-created_at">
+				<small><%= @post.created_at.strftime('%Y/%m/%d') %></small>
+			</div>
 		</div>
 
-		<div class="post-show-main-images">
+		<div class="post-show-main-images clearfix">
 			<% if @post.images.attached? %>
 				<%= image_tag @post, size: "260x260"  %> <br>
 			<% end %>
 		</div>
-		<table class="post-show-main-table2">
-			<tbody class="post-show-main-table2-tbody">
-				<tr>
-					<td class="post-show-main-table2-tbody-td1">
-						フォローbtn
-					</td>
-					<td rowspan="3">
-						<div class="post-show-main-posted_details">
-							<%= @post.posted_details %>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<p class="post-show-main-genre-p"> --ジャンル-- </p>
-						<div class="post-show-main-genre">
-							<%= @post.genre %>
-						</div>
-					</td>
-					<td>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<p class="post-show-main-location-p"> --活動場所-- </p>
-						<div class="post-show-main-location">
-							<%= @post.location %>
-						</div>
-					</td>
-					<td></td>
-				</tr>
-			</tbody>
-		</table>
-
-		<div class="post-show-main-favorits">
+		<div class="post-show-main-option clearfix">
+			<div class="post-show-main-option-naiyou">
+				<div class="post-show-main-option-posted_details">
+					<%= @post.posted_details %>
+					<div class="post-show-main-option-genre">
+						ジャンル : ( <%= @post.genre %> )
+						活動場所 : ( <%= @post.location %> )
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="post-show-main-destroy clearfix">
+			<%= link_to posts_path, method: :delete,"data-confirm" => "本当に消しますか？" do %>
+			<span>✖︎<span>
+			<% end %>
+		</div>
+		<div class="post-show-main-comment clearfix">
+			<ruby><span class="post-show-commentes">💬</span><rt><%= @post.comments.count%></rt></ruby>
+		</div>
+		<div class="post-show-main-favorits clearfix">
 			<% if current_user.already_favorited?(@post) %>
 			  <ruby><%= button_to '⭐️', post_favorite_path(@post.id), method: :delete, class: "btn btn-lg btn-base-1 mt-20 pull-right post-show-main-favorit-1 suter"%><rt><%= @post.favorited_users.count %></rt></ruby>
 			<% else %>
 			  <ruby><%= button_to '☆', post_favorites_path(@post.id), class: "btn btn-lg btn-base-1 mt-20 pull-right post-show-main-favorit-1"%><rt><%= @post.favorited_users.count %></rt></ruby>
 			<% end %>
 		</div>
+		
 	</div>
 
 	<div class="post-show-comments clearfix">
@@ -80,9 +54,7 @@
 			<div class="post-show-comments-main-comment">
 				<%= attachment_image_tag c.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
 				<%= c.comment %>
-				
 				<%= link_to "削除", post_comment_path(c.id), method: :delete,"data-confirm" => "本当に消しますか？" %>
-				
 			</div><br>
 			<% end %>
 		</div>
@@ -99,12 +71,6 @@
 			</div>
 	</div>
 </div>
-
-
-
-<% if @post.images.attached? %>
-						<%= image_tag @post.images.first, size: "250x250"  %> <br>
-					<% end %>
 
 
 

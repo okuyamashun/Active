@@ -63,6 +63,22 @@
 .mypage-posts-index-title{
   text-align: center;
 }
+.mypage-main-follow{
+  float: left;
+  margin-top:50px;
+  margin-left: 80px;
+  width: 300px;
+}
+.stats-table{
+  width: 280px;
+  text-align: center;
+}
+.stats-hito-1{
+  font-size: 60px;
+}
+.stats-star-1{
+  font-size: 50px;
+}
 
 
     /*////   user-edit   ////*/
@@ -96,6 +112,67 @@
   margin-top: 20px;
   margin-bottom: 40px;
 }
+
+
+    /*////   user-show-follower   ////*/
+.user-follors{
+  background-image: url(sea1.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+}
+.user-follors-title{
+  text-align: center;
+  margin: 0;
+  padding-top: 30px;
+  padding-bottom: 25px;
+  font-size: 30px;
+}
+.user-follow-show{
+  padding-left: 135px;
+  padding-right: 135px;
+}
+.user-follors-main{
+  width: 260px;
+  text-align: center;
+  border-top-right-radius: 18px;
+  border-top-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  border-bottom-left-radius: 18px;
+  box-shadow: rgba(0,0,0,0.8) 3px 3px 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  display: inline-block;
+}
+.user-follors-main-username{
+  padding-top: 5px;
+  height: 30px;
+  font-size: 18px;
+  color: #000;
+}
+.user-follors-main-email{
+  height: 30px;
+  color: #000;
+}
+.stat{
+  color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

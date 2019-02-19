@@ -1,9 +1,25 @@
-<% @user.following.each do |user| %>
-<table>
-<tr>
-  <td>  <%= user.name %> </td>
-  <td><%= link_to '詳細', user_path(user.id) %></td>
-</tr>
 
-</table>
-<% end %>
+<div class="user-follors">
+	
+	<div class="user-follow-show">
+		<div class="user-follors-title">
+			<span class="user-follors-title-span">フォロー</span>
+		</div>
+		<% @user.following.each do |user| %>
+			<div class="user-follors-main">
+				<%= link_to user_path(user.id) do %>
+					<div class="user-follors-main-username">
+						<span><%= user.username %></span>
+					</div>
+					<div class="user-follors-main-image">
+						<span><%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "/images/no_image.jpg", size: "200x200" %></span>
+					</div>
+					<div class="user-follors-main-email">
+						<span><%= user.email %></span>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</div>
+

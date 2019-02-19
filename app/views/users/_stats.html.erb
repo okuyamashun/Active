@@ -1,15 +1,99 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <a href="<%= following_user_path(@user) %>">
-    <strong id="following" class="stat">
-      <%= @user.following.count %>
-    </strong>
-    following
-  </a>
-  <a href="<%= followers_user_path(@user) %>">
-    <strong id="followers" class="stat">
-      <%= @user.followers.count %>
-    </strong>
-    followers
-  </a>
+
+  <table class="stats-table">
+    <tbody class="stats-tbody">
+      <tr class="stats-tbody-tr">
+        <td class="stats-tbody-td">
+          <span class="stats-hito-1">
+            <a href="<%= following_user_path(@user) %>">👤</a>
+          </span>
+        </td>
+        <td>
+          <span class="stats-hito-1">
+            <a href="<%= followers_user_path(@user) %>">👥</a>
+          </span>
+        </td>
+      </tr>
+      <tr class="stats-tbody-tr">
+        <td class="stats-tbody-td">
+          <span class="following-span">
+            
+              <strong id="following" class="stat">
+                <%= @user.following.count %>
+              </strong>
+              <span class="stat">フォロー</span>
+            
+          </span>
+        </td>
+        <td class="stats-tbody-td">
+          <span class="followers-span">
+            
+              <strong id="followers" class="stat">
+                <%= @user.followers.count %>
+              </strong>
+              <span class="stat">フォロワー</span>
+            </a>
+          </span>
+        </td>
+      </tr>
+      <tr class="stats-tbody-tr">
+        <td class="stats-tbody-td">
+          <span class="stats-star-1">⭐️</span>
+        </td>
+        <td class="stats-tbody-td">
+          <span class="stats-star-1">💬</span>
+        </td>
+      </tr>
+      <tr class="stats-tbody-tr">
+        <td class="stats-tbody-td">
+          <%= @user.favorites.count %> お気に入り
+        </td>
+        <td class="stats-tbody-td">
+          <%= @user.comments.count%> コメント
+        </td>
+      </tr>
+      <% if @user == current_user %>
+      <tr class="stats-tbody-tr">
+        <td class="stats-tbody-td">
+          <span class="stats-star-1">
+            <%= link_to edit_user_path(@user.id) do %>
+              🔧
+              <% end %>
+            </span>
+        </td>
+        <td class="stats-tbody-td">
+          <span class="stats-star-1"><%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %>❌<% end %></span>
+        </td>
+      </tr>
+      <tr class="stats-tbody-tr">
+        <td class="stats-tbody-td">
+          <span>EDIT</span>
+        </td>
+        <td class="stats-tbody-td">
+            <span>ログアウト</span>
+          </td>
+        </tr>
+            <% else %>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
+
+
+
+
+
+
+
+

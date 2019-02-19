@@ -19,18 +19,6 @@
 				<%= @user.introduction %>
 			</span>
 		</div>
-		<div class="mypage-main-user-option-edit clearfix">
-			<span class="mypage-edit">
-				<%= link_to "プロフィール編集", edit_user_path(@user.id), class:"btn btn-primary" %>
-			</span>
-			<span class="mypage-sign_out">
-				<%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %>
-					<i class="icons3">
-						<span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span><rt>ログアウト</rt><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
-					</i>
-				<% end %>
-			</span>
-		</div>
 	</div>
 
 	<hr>
@@ -48,15 +36,20 @@
 				<% end %>
 			</div>
 		</div>
+		<div class="mypage-main-follow">
+			<div class="mypage-main-follow-index">
+				<div class="mypage-main-follow-index-tilte">
+					<% if user_signed_in? %>
+						<%= render 'follow_form'  %>
+					<% end %>
+					<section class="stats">
+	  					<%= render 'users/stats' %>
+					</section>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
-
-<% if user_signed_in? %>
-<%= render 'follow_form'  %>
-<% end %>
-<section class="stats">
-  <%= render 'users/stats' %>
-</section>
 
 
 

@@ -35,8 +35,8 @@ class PostsController < ApplicationController
 
 	def destroy
 		@post = Post.find(params[:id])
-    	@post.comment.delete
-    	redirect_to post_path(@post.id)
+    	@post.destroy
+    	redirect_to posts_path
 	end
 	def search
 		@search = Post.ransack(params[:q])
