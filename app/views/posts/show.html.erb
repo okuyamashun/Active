@@ -1,76 +1,97 @@
-<div class="post-show clearfix">
-	<div class="post-show-main clearfix">
-		<div class="clearfix">
-			<div class="post-show-main-user">
-					<%= attachment_image_tag @post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "80x80" %>
-					<%= @post.user.username %>
-			</div>
-			<div class="post-show-main-title">
-				<span><%= @post.title %></span>
-			</div>
-			<div class="post-show-main-created_at">
-				<small><%= @post.created_at.strftime('%Y/%m/%d') %></small>
-			</div>
-		</div>
 
-		<div class="post-show-main-images clearfix">
-			<% if @post.images.attached? %>
-				<%= image_tag @post, size: "260x260"  %> <br>
-			<% end %>
-		</div>
-		<div class="post-show-main-option clearfix">
-			<div class="post-show-main-option-naiyou">
-				<div class="post-show-main-option-posted_details">
-					<%= @post.posted_details %>
-					<div class="post-show-main-option-genre">
-						ジャンル : ( <%= @post.genre %> )
-						活動場所 : ( <%= @post.location %> )
+	<div class="post-show clearfix">
+		<div class="post-show-main clearfix">
+			<div class="clearfix">
+				<%= link_to user_path(@post.user.id) do %>
+				<div class="post-show-main-user">
+						<%= attachment_image_tag @post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "80x80" %>
+						<%= @post.user.username %>
+				</div>
+				<% end %>
+				<div class="post-show-main-title">
+					<span><%= @post.title %></span>
+				</div>
+				<div class="post-show-main-created_at">
+					<small><%= @post.created_at.strftime('%Y/%m/%d') %></small>
+				</div>
+			</div>
+
+			<div class="post-show-main-images clearfix">
+				<div class="container">
+					<div class="row">
+						<% @post.images.count.times do |i| %>
+						 	<%= image_tag(@post.images[i],size: "500x500") %>
+						<% end %>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="post-show-main-destroy clearfix">
-			<%= link_to posts_path, method: :delete,"data-confirm" => "本当に消しますか？" do %>
-			<span>✖︎<span>
-			<% end %>
-		</div>
-		<div class="post-show-main-comment clearfix">
-			<ruby><span class="post-show-commentes">💬</span><rt><%= @post.comments.count%></rt></ruby>
-		</div>
-		<div class="post-show-main-favorits clearfix">
-			<% if current_user.already_favorited?(@post) %>
-			  <ruby><%= button_to '⭐️', post_favorite_path(@post.id), method: :delete, class: "btn btn-lg btn-base-1 mt-20 pull-right post-show-main-favorit-1 suter"%><rt><%= @post.favorited_users.count %></rt></ruby>
-			<% else %>
-			  <ruby><%= button_to '☆', post_favorites_path(@post.id), class: "btn btn-lg btn-base-1 mt-20 pull-right post-show-main-favorit-1"%><rt><%= @post.favorited_users.count %></rt></ruby>
-			<% end %>
-		</div>
-		
-	</div>
-
-	<div class="post-show-comments clearfix">
-		<div><h3 class="post-show-comments-title"> コメント・質問 </h3></div>
-		<div class="post-show-comments-main">
-			<% @post.comments.each do |c| %>
-			<div class="post-show-comments-main-comment">
-				<%= attachment_image_tag c.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
-				<%= c.comment %>
-				<%= link_to "削除", post_comment_path(c.id), method: :delete,"data-confirm" => "本当に消しますか？" %>
-			</div><br>
-			<% end %>
-		</div>
-			<div class="sousinbotan">
-				<%= form_for [@post, @comment] do |f| %>
-					<div class="row">
-						<div class="col-sm-12">
-							<%= f.hidden_field :post_id %>
-							<%= f.text_area :comment, class: "form-control comment-sousin",placeholder: "質問・コメントをここに" %>
+			<div class="post-show-main-option clearfix">
+					<div class="post-show-main-option-posted_details">
+						<%= @post.posted_details %>
+						<div class="post-show-main-option-genre">
+							ジャンル : ( <%= @post.genre %> )
+							活動場所 : ( <%= @post.location %> )
 						</div>
 					</div>
-					<%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+			</div>
+			<% if @post.user == current_user %>
+				<div class="post-show-main-destroy clearfix">
+					<%= link_to post_path(@post.id), method: :delete,"data-confirm" => "本当に消しますか？" do %>
+					<span>✖︎</span>
+					<% end %>
+				</div>
+			<% end %>
+			<div class="post-show-main-comment clearfix">
+				<ruby><span class="post-show-commentes">💬</span><rt><%= @post.comments.count%></rt></ruby>
+			</div>
+			<div class="post-show-main-favorits clearfix">
+				<% if current_user.already_favorited?(@post) %>
+				  <ruby><%= button_to '⭐️', post_favorite_path(@post.id), method: :delete, class: "btn btn-lg btn-base-1 mt-20 pull-right post-show-main-favorit-1 suter"%><rt><%= @post.favorited_users.count %></rt></ruby>
+				<% else %>
+				  <ruby><%= button_to '☆', post_favorites_path(@post.id), class: "btn btn-lg btn-base-1 mt-20 pull-right post-show-main-favorit-1"%><rt><%= @post.favorited_users.count %></rt></ruby>
 				<% end %>
 			</div>
+
+		</div>
+
+		<div class="post-show-comments clearfix">
+			<div><h3 class="post-show-comments-title "> 💬 コメント・質問 💬 </h3></div>
+			<div class="post-show-comments-main">
+				<div class="comment-chate"><%= @post.title %></div>
+				<% @post.comments.each do |c| %>
+				<div class="post-show-comments-main-comment clearfix">
+
+
+							<span class="comment-top-image">
+							<%= attachment_image_tag c.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "30x30" %>
+							<span class="comment-username"><%= c.user.username %></span>
+							</span>
+							<% if c.user == current_user %>
+							<span class="sakujobotan-span">
+								<%= link_to post_comment_path(c.id), method: :delete,"data-confirm" => "本当に消しますか？" do %>❌<% end %>
+							</span>
+							<% end %>
+							<div class="coment-hontai">
+								<%= c.comment %>
+							</div>
+
+				</div><br>
+				<% end %>
+			</div>
+				<div class="sousinbotan">
+					<%= form_for [@post, @comment] do |f| %>
+						<div class="row">
+							<div class="col-sm-12">
+								<%= f.hidden_field :post_id %>
+								<%= f.text_area :comment, class: "form-control comment-sousin",placeholder: "質問・コメントをここに" %>
+							</div>
+						</div>
+						<%= f.submit "送信する", class: "btn btn btn-primary btn-base-1 mt-10 pull-right" %>
+					<% end %>
+				</div>
+		</div>
 	</div>
-</div>
+
 
 
 

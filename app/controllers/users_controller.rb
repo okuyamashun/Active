@@ -4,8 +4,7 @@ class UsersController < ApplicationController
 
 	 def show
       @user = User.find(params[:id])
-      @post = Post.find(params[:id])
-      @post = @user.posts
+      @posts = @user.posts
       @search = Post.ransack(params[:q])
   	end
 
@@ -19,6 +18,12 @@ class UsersController < ApplicationController
     	@user.update(user_params)
     	redirect_to user_path(@user.id)
   	end
+
+    def favorite
+      @search = Post.ransack(params[:q])
+      @user = User.find(params[:id])
+      @favorites = @user.favorites
+    end
 
     def following
       @search = Post.ransack(params[:q])

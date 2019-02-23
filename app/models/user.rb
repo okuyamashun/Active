@@ -10,9 +10,11 @@ class User < ApplicationRecord
 
          has_many :passive_follows, class_name: "Follow", foreign_key: "following_id", dependent: :destroy
 
+         has_many :followers, through: :passive_follows, source: :follower
+
          has_many :following, through: :active_follows, source: :following
 
-         has_many :followers, through: :passive_follows, source: :follower
+
           # ユーザーをフォローする
           def follow(other_user)
             active_follows.create(following_id: other_user.id)
@@ -20,16 +22,13 @@ class User < ApplicationRecord
 
           # ユーザーをアンフォローする
           def unfollow(other_user)
-            active_follows.find_by(follower_id: other_user.id).destroy
+            active_follows.find_by(following_id: other_user.id).destroy
           end
 
           # 現在のユーザーがフォローしてたらtrueを返す
           def following?(other_user)
             following.include?(other_user)
           end
-
-
-
 
          has_many :comments, dependent: :delete_all
 

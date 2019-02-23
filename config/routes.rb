@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
     resources :users, only:[:show, :edit, :update, :following, :followers] do
       member do
-        get :following, :followers
+        get :following, :followers, :favorite
       end
     end
 
@@ -23,12 +23,13 @@ Rails.application.routes.draw do
 
     resources :posts, only:[:new, :show, :create, :index, :destroy, :search] do
 
-    resources :comments, only:[:create, :destroy ]
+      resources :comments, only:[:create, :destroy ]
 
-    resources :favorites, only:[:create, :destroy]
+      resources :favorites, only:[:create, :destroy]
 
-  end
+    end
 
+  
 
   get "search", to: "posts#search"
 

@@ -11,7 +11,7 @@
 						<span><%= user.username %></span>
 					</div>
 					<div class="user-follors-main-image">
-						<span><%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "/images/no_image.jpg", size: "200x200" %></span>
+						<span><%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "200x200" %></span>
 					</div>
 					<div class="user-follors-main-email">
 						<span><%= user.email %></span>

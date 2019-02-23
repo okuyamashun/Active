@@ -1,0 +1,33 @@
+<div class="favorites-all">
+	<div class="favorites-all-title">
+		<span>⭐️お気に入り一覧⭐️</span>
+	</div>
+	<div class="favorites-all-main">
+		<% @favorites.each do |favorite| %>
+			<%= link_to post_path(favorite.post.id) do %>
+				<div class="index-main-card">
+					<span class="index-main-card-span">
+						<%= attachment_image_tag favorite.post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
+					</span>
+					<span class="index-main-card-username"><%= favorite.post.user.username %></span>
+					<div class="index-main-card-posts-image">
+					<% if favorite.post.images.exists? %>
+						<%= image_tag favorite.post.images.first, size: "250x250"  %> <br>
+					<% end %>
+					</div>
+					<p class="index-main-card-posts-title">Title</p>
+					<div class="index-main-card-posts-main-title">
+						<%= favorite.post.title %>
+					</div>
+					<div class="index-main-card-posts-created_at">
+						<div class="index-main-comment-ster">
+							<span class="index-main-comment-ster-span1">⭐️</span><ruby><rt><%= favorite.post.favorited_users.count %></rt></ruby>
+							<span class="index-main-comment-ster-span1">💬</span><ruby><rt><%= favorite.post.comments.count %></rt></ruby>
+						</div>
+						<small><%= favorite.post.created_at.strftime('%Y/%m/%d') %></small>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>

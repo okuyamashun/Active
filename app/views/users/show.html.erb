@@ -7,7 +7,7 @@
 					<span><%= @user.username %></span>
 				</div>
 				<div class="mypage-main-user-option-image">
-					<span><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "/images/no_image.jpg", size: "200x200" %></span>
+					<%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "200x200" %>
 				</div>
 				<div class="mypage-main-user-option-email">
 					<span><%= @user.email %></span>
@@ -27,7 +27,7 @@
 		<div class="mypage-posts-index">
 			<h3 class="mypage-posts-index-title">投稿一覧</h3>
 			<div class="mypage-posts-index-image">
-				<% @post.each do |post| %>
+				<% @posts.each do |post| %>
 					<%= link_to post_path(post.id) do %>
 						<% if post.images.attached? %>
 					    <%= image_tag post.images.first, size: "180x180" %>
@@ -39,9 +39,11 @@
 		<div class="mypage-main-follow">
 			<div class="mypage-main-follow-index">
 				<div class="mypage-main-follow-index-tilte">
-					<% if user_signed_in? %>
-						<%= render 'follow_form'  %>
-					<% end %>
+					<div class="mypage-main-follow-index-form">
+						<% if user_signed_in? %>
+							<%= render 'follow_form'  %>
+						<% end %>
+					</div>
 					<section class="stats">
 	  					<%= render 'users/stats' %>
 					</section>

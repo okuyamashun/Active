@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@images = @post.images.build
 		@comment = Comment.new(post_id: @post.id)
+		@comments = @post.comments
 		@search = Post.ransack(params[:q])
 		@favorites = Favorite.new
 	end
@@ -23,7 +24,7 @@ class PostsController < ApplicationController
 		if @post.save
 			redirect_to posts_path
 		else
-			render posts_path
+			redirect_to posts_path(@post.id)
 	    end
 	end
 
@@ -43,7 +44,6 @@ class PostsController < ApplicationController
 		@search.sorts = 'id asc' if @search.sorts.empty?
 		@searchs = @search.result(distinct: true)
 	end
-
 
 
 private

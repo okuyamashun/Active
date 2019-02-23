@@ -35,13 +35,13 @@
 #container{
   height: 900px;
 }
+
 header{
   border-top: 2px solid #000;
   border-bottom: 2px solid #000;
   height: 120px;
   padding-top: 10px;
-  background-image: url(image1.jpg);
-  background-size: cover;
+  background-color: red;
 }
 
 .icon1{
@@ -49,8 +49,16 @@ header{
   margin-top: 55px;
   margin-left: 60px;
   float: left;
-  color: #000;
   text-shadow: rgba(0,0,0,0.4) 2px 2px 4px;
+  color: #FFF;
+  transition-duration:1s;
+}
+.icon1:hover{
+  -webkit-transform: translateY(-8px);
+  -ms-transform: translateY(-8px);
+  -o-transform: translateY(-8px);
+  transform: translateY(-8px);
+  color: #2C7CFF;
 }
 
 .icon2{
@@ -58,8 +66,16 @@ header{
   margin-top: 55px;
   margin-left: 50px;
   float: left;
-  color: #000;
   text-shadow: rgba(0,0,0,0.4) 2px 2px 4px;
+  color:#FFF;
+  transition-duration:1s;
+}
+.icon2:hover{
+  -webkit-transform: translateY(-8px);
+  -ms-transform: translateY(-8px);
+  -o-transform: translateY(-8px);
+  transform: translateY(-8px);
+  color: #2C7CFF;
 }
 .icon3{
   font-size: 35px;
@@ -67,16 +83,22 @@ header{
   margin-left: 70px;
   float: left;
 }
+a:link{
+  text-decoration:none;
+}
 .header-title{
   position: relative;
   font-style: oblique;
-  font-family: serif;
   font-weight: bold;
   letter-spacing: 0.23em;
-  text-shadow: rgba(0,0,0,0.6) 2px 2px 4px;
+  text-shadow: rgba(0,0,0,0.8) 2px 2px 5px;
   font-size: 60px;
   left: 370px;
-  color: #000;
+  color:#FFF;
+  transition-duration:1s;
+}
+.header-title:hover{
+  color: #2C7CFF;
 }
 .kensaku{
   float: right;

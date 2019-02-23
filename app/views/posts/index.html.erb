@@ -1,19 +1,21 @@
 <div class="index-main">
 	<div class="index-title">
-		<span class="post-index-span">---Recently Active---</span>
+		<span class="post-index-span" id="animation">---Recently Active---</span>
 	</div>
 	<div class="index-main-card-container">
 		<% @posts.each do |post| %>
 			<%= link_to post_path(post.id) do %>
-				<div class="index-main-card">
-					<span class="index-main-card-span">
-						<%= attachment_image_tag post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
-					</span>
-					<span class="index-main-card-username"><%= post.user.username %></span>
+				<div class="index-main-card cards" >
+					<div class="index-main-card-div">
+						<span class="index-main-card-span">
+							<%= attachment_image_tag post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
+						</span>
+						<span class="index-main-card-username"><%= post.user.username %></span>
+					</div>
 					<div class="index-main-card-posts-image">
-						<% if post.images.attached? %>
-						<%= image_tag post.images.first, size: "250x250"  %> <br>
-					<% end %>
+						<% if post.images.exists? %>
+							<%= image_tag post.images.first, size: "250x250"  %> <br>
+						<% end %>
 					</div>
 					<p class="index-main-card-posts-title">Title</p>
 					<div class="index-main-card-posts-main-title">
@@ -32,9 +34,9 @@
 	</div>
 </div>
 
+<script>
 
-
-
+</script>
 
 
 

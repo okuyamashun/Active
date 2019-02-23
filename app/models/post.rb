@@ -4,12 +4,16 @@ class Post < ApplicationRecord
 
 	has_many_attached :images
 
-	has_many :comments
+	has_many :comments, dependent: :delete_all
 
-	has_many :favorites
+	has_many :favorites, dependent: :delete_all
 
 	has_many :favorited_users, through: :favorites, source: :user
 
-	attachment :profile_image
+	validates :title, length: { in: 1..30 }
+
+	validates :posted_details, length: { in: 1..3000 }
+
+	validates :location, length: { in: 1..30 }
 
 end

@@ -39,7 +39,9 @@
       </tr>
       <tr class="stats-tbody-tr">
         <td class="stats-tbody-td">
-          <span class="stats-star-1">⭐️</span>
+          <%= link_to favorite_user_path do %>
+            <span class="stats-star-1">⭐️</span>
+          <% end %>
         </td>
         <td class="stats-tbody-td">
           <span class="stats-star-1">💬</span>

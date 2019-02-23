@@ -4,11 +4,23 @@
 
 
 		/*post-new*/
+
+.post-new-main{
+	background-image: url(zimen1.jpg);
+	background-attachment: fixed;
+
+}
 .post-new-main-user{
+	border-top-right-radius: 18px;
+	border-top-left-radius: 18px;
+	border-bottom-right-radius: 18px;
+	border-bottom-left-radius: 18px;
 	float: left;
-	margin-top: 20px;
+	margin-top: 90px;
 	margin-left: 135px;
 	text-align: center;
+	background-color: #FFF;
+	width: 280px;
 }
 .post-new-main-user-title{
 	padding-bottom: 80px;
@@ -27,7 +39,7 @@
 	border-top-left-radius: 18px;
 	border-bottom-right-radius: 18px;
 	border-bottom-left-radius: 18px;
-	box-shadow: rgba(0,0,0,0.7) 3px 3px 10px;
+	background-color: #FFF;
 }
 .post-new-main-option-title{
 	text-align: center;
@@ -37,6 +49,7 @@
 	font-size: 16px;
 	margin-left: 10px;
 }
+
 .post-new-main-option-location{
 	margin-bottom: 10px;
 }
@@ -92,13 +105,14 @@
 }
 .index-title{
 	text-align: center;
-	padding-top: 20px;
-	padding-bottom: 10px;
+	padding-top: 30px;
+	padding-bottom: 20px;
 	letter-spacing: 0.1em;
 	font-family: serif;
+	font-weight: bold;
 }
 .post-index-span{
-	font-size: 30px;
+	font-size: 43px;
 }
 .index-main-card{
 	background-color: #FFF;
@@ -106,14 +120,22 @@
 	border-top-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 	border-bottom-left-radius: 15px;
-	box-shadow: rgba(0,0,0,0.5) 3px 3px 10px;
-	margin: 5px;
+	box-shadow: rgba(0,0,0,0.5) 0 10px;
+	margin: 5px 0 10px 0;
 	width: 280px;
 	height: 100%;
-	padding-top: 7px;
+	padding-top: 12px;
 	display: inline-block;
 	color: #000;
 }
+.index-main-card:hover{
+	-ms-transform: translateY(5px);
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+	border-bottom: none;
+    box-shadow: none;
+}
+
 .index-main-card-span{
 	padding-left: 15px;
 }
@@ -130,6 +152,8 @@
 .index-main-card-posts-main-title{
 	padding-right: 20px;
 	padding-left: 20px;
+	padding-bottom: 10px;
+	padding-top: 10px;
 	margin-bottom: 10px;
 	text-align: center;
 	font-size: 18px;
@@ -147,8 +171,35 @@
 }
 
 
+.fadeInDown {
+ -webkit-animation-fill-mode:both;
+ -ms-animation-fill-mode:both;
+ animation-fill-mode:both;
+ -webkit-animation-duration:1s;
+ -ms-animation-duration:1s;
+ animation-duration:1s;
+ -webkit-animation-name: fadeInDown;
+ animation-name: fadeInDown;
+ visibility: visible !important;
+}
+@-webkit-keyframes fadeInDown {
+ 0% { opacity: 0; -webkit-transform: translateY(-20px); }
+ 100% { opacity: 1; -webkit-transform: translateY(0); }
+}
+@keyframes fadeInDown {
+ 0% { opacity: 0; -webkit-transform: translateY(-20px); -ms-transform: translateY(-20px); transform: translateY(-20px); }
+ 100% { opacity: 1; -webkit-transform: translateY(0); -ms-transform: translateY(0); transform: translateY(0); }
+}
+
+
       /*post-show*/
 
+
+.post-show{
+	background-image: url(renga2.jpg);
+	background-attachment: fixed;
+	background-size: cover;
+}
 .post-show-main{
 	float: left;
 	width: 750px;
@@ -159,8 +210,9 @@
 	box-shadow: rgba(0,0,0,0.7) 3px 3px 10px;
 	margin-top: 30px;
 	margin-bottom: 40px;
-	margin-left: 125px;
+	margin-left: 100px;
 	padding:15px;
+	background-color: #FFF;
 }
 .post-show-main-user{
 	float: left;
@@ -172,8 +224,20 @@
 	font-size: 30px;
 	margin-top: 10px;
 }
+.post-show-main-images{
+	padding-top: 5px;
+	padding-bottom: 10px;
+	height: 520px;
+	white-space:nowrap;
+  	overflow:scroll;
+}
+
 .post-show-main-option{
-	margin-top: 10px;
+	padding: 10px;
+	border-left: 1px  solid #000;
+	border-right: 1px solid #000;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
 }
 .post-show-main-created_at{
 	float: right;
@@ -197,6 +261,10 @@
 	width: 33px;
 	margin-top: 5px;
 }
+.post-show-comments{
+	background-color: #000;
+	border:3px solid #FFF;
+}
 .post-show-main-favorits{
 	float: right;
 	text-align: right;
@@ -211,9 +279,9 @@ input.btn-lg{
 
 .post-show-comments{
 	float: left;
-	width: 420px;
-	height: 600px;
-	margin-left: 30px;
+	width: 450px;
+	height: 750px;
+	margin-left: 60px;
 	margin-top: 30px;
 	margin-bottom: 30px;
 	border-top-right-radius: 15px;
@@ -224,28 +292,63 @@ input.btn-lg{
 }
 .post-show-comments-title{
 	text-align: center;
+	color: #FFF;
 }
 .post-show-comments-main{
+	background-image: url(line2.jpg);
+	background-size: cover;
 	display: block;
 	overflow:auto ;
-	height: 450px;
+	height: 500px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
+	padding-bottom: 5px;
+	background-color: #FFF;
 }
 .post-show-comments-main-comment{
-	margin-left: 10px;
+	padding-left: 13px;
+	padding-top: 5px;
 }
 .post-show-comments-main-comment-image{
+	width: 30px;
+	height: 30px;
+}
+.comment-username{
+	font-size: 14px;
+	color: #FFF;
+}
+.comment-chate{
+	text-align: center;
+	background-color: #3366CC;
+	color: #FFF;
+	padding-top: 7px;
+	font-size: 20px;
+}
+.coment-hontai{
+	color: #FFF;
+	border-radius: 10px;
+	padding: 3px;
+	margin-left: 5px;
+	margin-top: 3px;
+}
+.comment-top-image{
 	width: 40px;
 	height: 40px;
 }
+#comment_comment{
+	width: 414px;
+	border-radius: 0;
+}
 .sousinbotan{
-	position: absolute;
-	top:642px;
+	margin-left: 15px;
 	display: block;
 }
-#comment_comment{
-	width: 420px;
+input.mt-10{
+	margin-right: 15px;
+	border-radius: 0;
+	width: 414px;
 }
-
 
      /*post-search*/
 
@@ -259,9 +362,11 @@ input.btn-lg{
 	padding-left: 120px;
 	height: 100%;
 	min-height: 100%;
+	color: #FFF;
 }
 .search-main-card-container{
 	column-count: 4;
+	color: #000;
 }
 .searchtitle{
 	text-align: center;
@@ -283,6 +388,7 @@ input.btn-lg{
 	height: 100%;
 	padding-top: 7px;
 	display: inline-block;
+	color: #000;
 }
 .search-main-card-span{
 	padding-left: 15px;

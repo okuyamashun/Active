@@ -5,7 +5,14 @@
 
     /*///  user-show   ///*/
 
+.mypage-main{
+  padding-bottom: 20px;
+  background-image: url(meisai.jpg);
+  background-size: cover;
+}
 .mypage-main-user-title{
+  font-size: 30px;
+  color: #FFF;
   margin: 0;
   padding-top: 30px;
   padding-bottom: 40px;
@@ -18,11 +25,11 @@
   float: left;
 }
 .mypage-main-user-option2{
+  background-color: #FFF;
   border-top-right-radius: 18px;
   border-top-left-radius: 18px;
   border-bottom-right-radius: 18px;
   border-bottom-left-radius: 18px;
-  box-shadow: rgba(0,0,0,0.8) 3px 3px 10px;
 }
 .mypage-main-user-option-username{
   font-size: 20px;
@@ -35,18 +42,18 @@
 }
 .mypage-main-user-introduction{
   float: left;
-  font-size: 15px;
+  font-size: 18px;
   width: 700px;
   height: 300px;
   margin-left: 100px;
   margin-right: 180px;
   margin-bottom: 20px;
-  padding: 10px;
+  padding: 15px;
+  background-color: #FFF;
   border-top-right-radius: 18px;
   border-top-left-radius: 18px;
   border-bottom-right-radius: 18px;
   border-bottom-left-radius: 18px;
-  box-shadow: rgba(0,0,0,0.8) 3px 3px 10px;
 }
 .mypage-main-user-option-edit{
   padding-right: 190px;
@@ -62,12 +69,19 @@
 }
 .mypage-posts-index-title{
   text-align: center;
+  color: #FFF;
 }
 .mypage-main-follow{
+  background-color: #FFF;
   float: left;
   margin-top:50px;
   margin-left: 80px;
   width: 300px;
+  padding: 15px;
+  border-top-right-radius: 18px;
+  border-top-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  border-bottom-left-radius: 18px;
 }
 .stats-table{
   width: 280px;
@@ -79,10 +93,17 @@
 .stats-star-1{
   font-size: 50px;
 }
+.mypage-main-follow-index-form{
+  text-align: center;
+}
+
 
 
     /*////   user-edit   ////*/
 
+.mypage-edit-main{
+  height: 605px;
+}
 .mypage-edit-main-title{
   text-align: center;
 }
@@ -115,6 +136,7 @@
 
 
     /*////   user-show-follower   ////*/
+
 .user-follors{
   background-image: url(sea1.jpg);
   background-attachment: fixed;
@@ -132,6 +154,7 @@
   padding-right: 135px;
 }
 .user-follors-main{
+  background-color: #FFF;
   width: 260px;
   text-align: center;
   border-top-right-radius: 18px;
@@ -160,6 +183,26 @@
 
 
 
+      /*//user-favorits/////*/
+
+
+.favorites-all{
+  padding-right: 120px;
+  padding-left: 120px;
+  background-image: url(snow1.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+.favorites-all-title{
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  letter-spacing: 0.1em;
+  font-size: 30px;
+}
+.favorites-all-main{
+  column-count: 4;
+}
 
 
 

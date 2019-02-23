@@ -16,5 +16,32 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+$(function(){
+    $('.index-title').css({
+        bottom: "-50px",
+        opacity: "0"
+    });
 
+    setTimeout(function() {
+        $(".index-title").animate({
+            bottom:"50px",
+            opacity:"6.0"
+        }, 3000);
+    }, 1000);
+});
+
+
+$(function(){
+    $('.cards').css({
+        bottom: "-50px",
+        opacity: "0"
+    });
+
+    setTimeout(function() {
+        $(".cards").animate({
+            bottom:"50px",
+            opacity:"5.0"
+        }, 3000);
+    }, 3000);
+});
 
