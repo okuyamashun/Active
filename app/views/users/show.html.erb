@@ -30,7 +30,7 @@
 				<% @posts.each do |post| %>
 					<%= link_to post_path(post.id) do %>
 						<% if post.images.attached? %>
-					    <%= image_tag post.images.first, size: "180x180" %>
+					    <%= image_tag post.images.first, size: "180x180", class: "mypage-posts-index-image-main" %>
 						<% end %>
 					<% end %>
 				<% end %>

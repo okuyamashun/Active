@@ -15,8 +15,12 @@ class UsersController < ApplicationController
 
   	def update
     	@user = User.find(params[:id])
-    	@user.update(user_params)
-    	redirect_to user_path(@user.id)
+    	if @user.update(user_params)
+    	   redirect_to user_path(@user.id)
+       else
+        flash[:notice] = "＊ １文字以上、３０文字以内で入力して下さい ＊"
+         redirect_to edit_user_path(@user.id)
+      end
   	end
 
     def favorite

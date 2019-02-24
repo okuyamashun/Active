@@ -10,6 +10,11 @@
 			<h3 class="mypage-edit-main-name-title">USER名</h3>
 			<div class="mypage-edit-main-username">
 				<%= f.text_field :username %>
+				<% if flash[:notice] %>
+			      <span class="uaer-edit-flash">
+			        <%= flash[:notice] %>
+			      </span>
+				<% end %>
 			</div>
 			<h4 class="mypage-edit-main-introduction-title">マイプロフィール</h4>
 			<div class="mypage-edit-main-introduction">

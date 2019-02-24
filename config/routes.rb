@@ -29,8 +29,6 @@ Rails.application.routes.draw do
 
     end
 
-  
-
   get "search", to: "posts#search"
 
   resources :images

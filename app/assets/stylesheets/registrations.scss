@@ -3,7 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
+#container{
+  height: 900px;
+  animation: anime3 1s ease;
+}
 .image1 {
 background-image: url(image1.jpg);
 background-size: cover;
@@ -47,6 +50,7 @@ background-size: cover;
 	border-bottom-left-radius: 18px;
 	background-attachment: fixed;
 	background: linear-gradient(#FFD5EC, #FF6928) fixed;
+	animation: anime3 1s ease;
 }
 
 .signup_title {
@@ -72,6 +76,15 @@ background-size: cover;
 	margin-bottom: 10px;
 }
 
-
+@keyframes anime3 {
+    0% {
+        opacity:  0;
+        top: 50px;
+    }
+    100% {
+        opacity:  1;
+        top: 0;
+    }
+}
 
 

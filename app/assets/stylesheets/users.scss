@@ -17,12 +17,38 @@
   padding-top: 30px;
   padding-bottom: 40px;
   text-align: center;
+  display:  block;                /* ブロック要素にする */
+  position:  relative;            /* 位置指定 */
+  animation: anime1 1s ease;      /* アニメーション指定 */
+}
+@keyframes anime1 {
+    0% {
+        opacity:  0;                /* 透明度指定 */
+        top: 50px;                  /* 位置指定 */
+    }
+    100% {
+        opacity:  1;                /* 透明度指定 */
+        top: 0;                     /* 位置指定 */
+    }
 }
 .mypage-main-user-option{
   text-align: center;
   margin-left: 160px;
   width: 300px;
   float: left;
+  display:  block;
+  position:  relative;
+  animation: anime2 1s ease;
+}
+@keyframes anime2 {
+    0% {
+        opacity:  0;
+        top: 50px;
+    }
+    100% {
+        opacity:  1;
+        top: 0;
+    }
 }
 .mypage-main-user-option2{
   background-color: #FFF;
@@ -30,6 +56,13 @@
   border-top-left-radius: 18px;
   border-bottom-right-radius: 18px;
   border-bottom-left-radius: 18px;
+}
+.mypage-main-user-option-image{
+  transition-duration: 0.3s;
+}
+.mypage-main-user-option-image:hover{
+  transform: scale(1.05);
+  transition-duration: 0.3s;
 }
 .mypage-main-user-option-username{
   font-size: 20px;
@@ -54,6 +87,9 @@
   border-top-left-radius: 18px;
   border-bottom-right-radius: 18px;
   border-bottom-left-radius: 18px;
+  display:  block;
+  position:  relative;
+  animation: anime3 1s ease;
 }
 .mypage-main-user-option-edit{
   padding-right: 190px;
@@ -66,32 +102,62 @@
   margin-left: 135px;
   margin-bottom: 30px;
   float: left;
+  display:  block;
+  position:  relative;
+  animation: anime3 1s ease;
 }
 .mypage-posts-index-title{
   text-align: center;
   color: #FFF;
+  margin: 0;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+.mypage-posts-index-image-main{
+  transition-duration: 0.3s;
+}
+.mypage-posts-index-image-main:hover{
+  transform: scale(1.25);
+  transition-duration: 0.3s;
 }
 .mypage-main-follow{
   background-color: #FFF;
   float: left;
   margin-top:50px;
   margin-left: 80px;
-  width: 300px;
+  width: 350px;
   padding: 15px;
   border-top-right-radius: 18px;
   border-top-left-radius: 18px;
   border-bottom-right-radius: 18px;
   border-bottom-left-radius: 18px;
+  display:  block;
+  position:  relative;
+  animation: anime3 1s ease;
 }
 .stats-table{
-  width: 280px;
+  width: 300px;
   text-align: center;
 }
 .stats-hito-1{
   font-size: 60px;
+  transition-duration: 0.3s;
+}
+.stats-hito-1:hover{
+  font-size: 67px;
+  transition-duration: 0.3s;
 }
 .stats-star-1{
   font-size: 50px;
+  transition-duration: 0.3s;
+}
+.stats-star-1:hover{
+  font-size: 60px;
+  transition-duration: 0.3s;
+}
+.stats-tbody-td{
+  width: 150px;
+  height: 95px;
 }
 .mypage-main-follow-index-form{
   text-align: center;
@@ -102,21 +168,39 @@
     /*////   user-edit   ////*/
 
 .mypage-edit-main{
+  background-image: url(sea8.jpg);
   height: 605px;
 }
 .mypage-edit-main-title{
   text-align: center;
+  color: #FFF;
+  display:  block;
+  position:  relative;
+  animation: anime3 1s ease;
 }
 .mypage-edit-main-image{
   float: left;
   width: 300px;
   height: 300px;
   margin-left: 150px;
+  padding-top: 50px;
+  display:  block;
+  position:  relative;
+  animation: anime3 1s ease;
 }
 .mypage-edit-main-option{
   float: left;
   margin-left: 50px;
-  width: 600px;
+  padding: 10px;
+  width: 650px;
+  border-top-right-radius: 18px;
+  border-top-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  border-bottom-left-radius: 18px;
+  background-color: #FFF;
+  display:  block;
+  position:  relative;
+  animation: anime3 1s ease;
 }
 #user_username[type="text"] {
     width: 200px;
@@ -131,7 +215,12 @@
 .mypage-edit-up{
   text-align: right;
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  margin-right: 30px;
+}
+.uaer-edit-flash{
+  background-color: red;
+  color: #FFF;
 }
 
 
@@ -141,6 +230,7 @@
   background-image: url(sea1.jpg);
   background-attachment: fixed;
   background-size: cover;
+  padding-bottom: 20px;
 }
 .user-follors-title{
   text-align: center;
@@ -161,10 +251,29 @@
   border-top-left-radius: 18px;
   border-bottom-right-radius: 18px;
   border-bottom-left-radius: 18px;
-  box-shadow: rgba(0,0,0,0.8) 3px 3px 10px;
+  box-shadow: rgba(0,0,0,0.5) 0 10px;
+  margin: 5px 0 10px 0;
   margin-bottom: 10px;
   margin-right: 10px;
   display: inline-block;
+  transition-duration: 0.3s;
+  position:  relative;
+  animation: anime3 1s ease;
+}
+.user-follors-main:hover{
+  -ms-transform: translateY(5px);
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+  border-bottom: none;
+  box-shadow: none;
+  transition-duration: 0.3s;
+}
+.user-follors-main-image{
+  transition-duration: 0.3s;
+}
+.user-follors-main-image:hover{
+  transform: scale(1.25);
+  transition-duration: 0.3s;
 }
 .user-follors-main-username{
   padding-top: 5px;
@@ -187,6 +296,7 @@
 
 
 .favorites-all{
+  padding-bottom: 20px;
   padding-right: 120px;
   padding-left: 120px;
   background-image: url(snow1.jpg);
@@ -202,8 +312,20 @@
 }
 .favorites-all-main{
   column-count: 4;
+  display:  block;
+  position:  relative;
+  animation: anime3 1s ease;
 }
-
+@keyframes anime3 {
+    0% {
+        opacity:  0;
+        top: 50px;
+    }
+    100% {
+        opacity:  1;
+        top: 0;
+    }
+}
 
 
 

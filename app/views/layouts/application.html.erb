@@ -25,12 +25,13 @@
         <div class="icon3"></div>
 
         <% end %>
-
-        <%= link_to posts_path do %>
-        <span class="header-title">
-          ACTIVE
-        </span>
-        <% end %>
+        <div class="header-title-main">
+          <%= link_to posts_path do %>
+            <span class="header-title">
+              ACTIVE
+            </span>
+          <% end %>
+        </div>
         <% if user_signed_in? %>
         <div class="kensaku">
           <%= search_form_for @search, url:search_path do |f| %>

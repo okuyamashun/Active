@@ -9,14 +9,14 @@
             <a href="<%= following_user_path(@user) %>">👤</a>
           </span>
         </td>
-        <td>
+        <td class="stats-tbody-td">
           <span class="stats-hito-1">
             <a href="<%= followers_user_path(@user) %>">👥</a>
           </span>
         </td>
       </tr>
       <tr class="stats-tbody-tr">
-        <td class="stats-tbody-td">
+        <td>
           <span class="following-span">
             
               <strong id="following" class="stat">
@@ -26,7 +26,7 @@
             
           </span>
         </td>
-        <td class="stats-tbody-td">
+        <td>
           <span class="followers-span">
             
               <strong id="followers" class="stat">
@@ -48,10 +48,10 @@
         </td>
       </tr>
       <tr class="stats-tbody-tr">
-        <td class="stats-tbody-td">
+        <td>
           <%= @user.favorites.count %> お気に入り
         </td>
-        <td class="stats-tbody-td">
+        <td>
           <%= @user.comments.count%> コメント
         </td>
       </tr>
@@ -69,10 +69,10 @@
         </td>
       </tr>
       <tr class="stats-tbody-tr">
-        <td class="stats-tbody-td">
+        <td>
           <span>EDIT</span>
         </td>
-        <td class="stats-tbody-td">
+        <td>
             <span>ログアウト</span>
           </td>
         </tr>

@@ -32,9 +32,7 @@
   display: block;
   clear: both;
 }
-#container{
-  height: 900px;
-}
+
 
 header{
   border-top: 2px solid #000;
@@ -42,8 +40,12 @@ header{
   height: 120px;
   padding-top: 10px;
   background-color: red;
+  transition-duration: 0.5s;
 }
-
+header:hover{
+  background-color: green;
+  transition-duration: 0.5s;
+}
 .icon1{
   font-size: 35px;
   margin-top: 55px;
@@ -51,7 +53,7 @@ header{
   float: left;
   text-shadow: rgba(0,0,0,0.4) 2px 2px 4px;
   color: #FFF;
-  transition-duration:1s;
+  transition-duration:0.3s;
 }
 .icon1:hover{
   -webkit-transform: translateY(-8px);
@@ -59,6 +61,8 @@ header{
   -o-transform: translateY(-8px);
   transform: translateY(-8px);
   color: #2C7CFF;
+  font-size: 45px;
+  transition-duration:0.3s;
 }
 
 .icon2{
@@ -68,7 +72,7 @@ header{
   float: left;
   text-shadow: rgba(0,0,0,0.4) 2px 2px 4px;
   color:#FFF;
-  transition-duration:1s;
+  transition-duration:0.3s;
 }
 .icon2:hover{
   -webkit-transform: translateY(-8px);
@@ -76,6 +80,8 @@ header{
   -o-transform: translateY(-8px);
   transform: translateY(-8px);
   color: #2C7CFF;
+  font-size: 45px;
+  transition-duration:0.3s;
 }
 .icon3{
   font-size: 35px;
@@ -86,6 +92,12 @@ header{
 a:link{
   text-decoration:none;
 }
+.header-title-main{
+  float: left;
+  position: relative;
+  left: 370px;
+  top: 10px;
+}
 .header-title{
   position: relative;
   font-style: oblique;
@@ -93,12 +105,13 @@ a:link{
   letter-spacing: 0.23em;
   text-shadow: rgba(0,0,0,0.8) 2px 2px 5px;
   font-size: 60px;
-  left: 370px;
   color:#FFF;
-  transition-duration:1s;
+  transition-duration:0.3s;
 }
 .header-title:hover{
   color: #2C7CFF;
+  font-size: 72px;
+  transition-duration:0.3s;
 }
 .kensaku{
   float: right;

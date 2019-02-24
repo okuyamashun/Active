@@ -3,6 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+.ani1{
+	height: 900px;
+	font-size: 70px;
+	text-align: center;
+	margin-top: 200px;
+}
+#theTarget{
+  height: 900px;
+  animation: anime4 1s ease;
+}
+
 .image1 {
 background-image: url(image1.jpg);
 background-size: cover;
@@ -46,6 +58,7 @@ background-size: cover;
 	border-bottom-left-radius: 15px;
 	background-attachment: fixed;
 	background: linear-gradient(#05FBFF, #1D62F0 ) fixed;
+	animation: anime3 1s ease;
 }
 
 .signin_title {
@@ -70,3 +83,17 @@ background-size: cover;
 	font-size: 20px;
 	margin-bottom: 10px;
 }
+
+
+@keyframes anime4 {
+    0% {
+        opacity:  0;
+        top: 25px;
+    }
+    100% {
+        opacity:  4;
+        top: 0;
+    }
+}
+
+

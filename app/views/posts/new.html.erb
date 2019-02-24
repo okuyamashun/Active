@@ -12,26 +12,51 @@
 	<div class="post-new-main-posts">
 			<div class="post-new-main-image">
 		<%= form_with model: @post, local: true  do |form| %>
-				<%= form.file_field :images, multiple: true %><br>
+				<%= form.file_field :images, multiple: true %>
 			</div>
+			<% if flash[:notice] %>
+		      <span class="post-new-main-flash">
+		        <%= flash[:notice] %>
+		      </span>
+		    <% end %>
 			<h2 class="post-new-main-option-title">ACTIVE OPTION</h2>
 			<div class="post-new-main-option">
 				<div class="post-new-main-option-location">
 					<span class="post-option-title"> 活動場所 </span>
 					<span><%= form.text_field :location %></span>
+					<% if flash[:notice] %>
+				      <span class="post-new-main-flash">
+				        <%= flash[:notice] %>
+				      </span>
+				    <% end %>
 				</div>
 				<div class="post-new-main-option-genre">
 					<span class="post-option-title"> ジャンル選択 </span>
 					<span>
 						<%= form.select(:genre, [["キャンプ", "キャンプ"], ["登山", "登山"], ["サイクリング", "サイクリング"], ["サーフィン", "サーフィン"], ["ダイビング", "ダイビング"], ["カヌー、カヤック","カヌー、カヤック"], ["ヨット","ヨット"], ["釣り","釣り"], ["スノーボード、スキー","スノーボード、スキー"], ["ボルダリング","ボルダリング"], ["スカイダイビング","スカイダイビング"], ["その他","その他"]]) %>
 					</span>
+					<% if flash[:notice] %>
+				      <span class="post-new-main-flash">
+				        <%= flash[:notice] %>
+				      </span>
+				    <% end %>
 				</div>
 				<div class="post-new-main-option-post-title">
 					<span class="post-option-title"> タイトル </span>
 					<span> <%= form.text_field :title %> </span>
+					<% if flash[:notice] %>
+				      <span class="post-new-main-flash">
+				        <%= flash[:notice] %>
+				      </span>
+				    <% end %>
 				</div>
 				<div class="post-new-main-option-posted_details">
 					<span class="post-option-title tilte-posted_details"> 投稿詳細 </span>
+					<% if flash[:notice] %>
+				      <span class="post-new-main-flash">
+				        <%= flash[:notice] %>
+				      </span>
+				    <% end %>
 					<span> <%= form.text_area :posted_details %> </span>
 				</div>
 				<div class="post-new-main-option-post-new-up">
@@ -41,6 +66,31 @@
 		<% end %>
 	</div>
 </div>
+
+<script>
+	
+	function previewFile() {
+  var preview = document.querySelector('img');//どこでプレビューするか指定。'img[name="preview"]'などにすればimg複数あっても指定できます。
+  var file    = document.querySelector('input[type=file]').files[0];//'input[type=file]'で投稿されたファイル要素の0番目を参照します。input[type=file]にmutipleがなくてもこのコードになります。
+  var reader  = new FileReader();
+
+  reader.addEventListener("load", function () {
+    preview.src = reader.result;//めちゃめちゃ長い文字列が引き渡されます。ユーザーのファイルパスに紐付かない画像情報だと思います。
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);//ここでreaderのメソッドに引数としてfileを入れます。ここで、readerのaddEventListenerが発火します。
+  }
+}
+
+</script>
+
+
+
+
+
+
+
 
 
 

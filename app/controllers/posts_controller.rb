@@ -21,11 +21,17 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(post_params)
 		@post.user_id = current_user.id
-		if @post.save
-			redirect_to posts_path
+		if @post.images.attached?
+
+			if @post.save
+				redirect_to posts_path
+			else
+				redirect_to new_post_path
+		    end
 		else
-			redirect_to posts_path(@post.id)
-	    end
+			flash[:notice] = "＊ 必須 ＊"
+			redirect_to new_post_path
+		end
 	end
 
 	def index
