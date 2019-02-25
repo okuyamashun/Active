@@ -46,11 +46,9 @@ $(function(){
 
 $(function(){
     $(".back-suraido").css("display", "none");//アニメーション中は非表示
-    $("header").css("display", "none");
-    $("footer").css("display", "none");
         setTimeout(function(){
             $('.ani1').slideUp();
-        },10000);//約10秒数後
+        },8000);//約10秒数後
 });
 
 $(function(){
@@ -58,23 +56,7 @@ $(function(){
         setTimeout(function(){
             $(".back-suraido").css("display", "block");
             $(".back-suraido").stop().animate({opacity:'1'},2000);//1秒かけてコンテンツを表示
-        },10000);//約10秒後に
-});
-
-    $(function(){
-    $("header").css({opacity:'0'});
-        setTimeout(function(){
-            $("header").css("display", "block");
-            $("header").stop().animate({opacity:'1'},1500);//2秒かけてコンテンツを表示
-        },1800);//約1.8秒後に
-});
-
-$(function(){
-    $("footer").css({opacity:'0'});
-        setTimeout(function(){
-            $("footer").css("display", "block");
-            $("footer").stop().animate({opacity:'1'},1500);//2秒かけてコンテンツを表示
-        },1800);//約1.8秒後に
+        },8000);//約10秒後に
 });
 
 $(function(){
@@ -82,16 +64,10 @@ $(function(){
         setTimeout(function(){
             $(".ani1-p").css("display", "block");
             $(".ani1-p").stop().animate({opacity:'1'},1000);//1秒かけてコンテンツを表示
-        },4500);//約4.5秒後に
+        },4800);//約4.8秒後に
 });
 
-$(function(){
-    $(".ani1-p2").css({opacity:'0'});
-        setTimeout(function(){
-            $(".ani1-p2").css("display", "block");
-            $(".ani1-p2").stop().animate({opacity:'1'},1000);//1秒かけてコンテンツを表示
-        },6500);//約6.5秒後に
-});
+
 
 
 
