@@ -6,7 +6,7 @@ class Post < ApplicationRecord
 
 	has_many :comments, dependent: :destroy
 
-	has_many :favorites, dependent: :delete_all
+	has_many :favorites, dependent: :destroy
 
 	has_many :favorited_users, through: :favorites, source: :user
 
@@ -15,6 +15,8 @@ class Post < ApplicationRecord
 	validates :posted_details, length: { in: 1..3000}
 
 	validates :location, length: { in: 1..30}
+
+	default_scope -> { order(created_at: :desc) }
 
 
 end

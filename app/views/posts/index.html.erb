@@ -8,7 +8,7 @@
 				<div class="index-main-card cards" >
 					<div class="index-main-card-div">
 						<span class="index-main-card-span">
-							<%= attachment_image_tag post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
+							<%= attachment_image_tag post.user, :profile_image, format: 'jpeg', fallback: "/images/no_image.jpg", size: "40x40" %>
 						</span>
 						<span class="index-main-card-username"><%= post.user.username %></span>
 					</div>

@@ -35,7 +35,8 @@ class PostsController < ApplicationController
 	end
 
 	def index
-		@posts = Post.page(params[:page]).reverse_order
+		@posts = Post.all
+		@posts = Post.order("id desc")
 		@user = current_user
 		@search = Post.ransack(params[:q])
 	end
@@ -49,13 +50,13 @@ class PostsController < ApplicationController
 		@search = Post.ransack(params[:q])
 		@search.sorts = 'id asc' if @search.sorts.empty?
 		@searchs = @search.result(distinct: true)
+		@searchs = Post.order("id desc")
 	end
 
 
 private
 	def post_params
 		params.require(:post).permit(:location, :genre, :title, :posted_details, images:[], comment_attributes: [ :comment, :created_at ])
-		
 	end
 
 	def search_params

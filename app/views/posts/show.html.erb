@@ -4,7 +4,7 @@
 			<div class="clearfix">
 				<%= link_to user_path(@post.user.id) do %>
 				<div class="post-show-main-user">
-						<%= attachment_image_tag @post.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "80x80" %>
+						<%= attachment_image_tag @post.user, :profile_image, format: 'jpeg', fallback: "/images/no_image.jpg", size: "80x80" %>
 						<%= @post.user.username %>
 				</div>
 				<% end %>
