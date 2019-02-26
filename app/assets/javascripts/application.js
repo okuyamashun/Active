@@ -39,16 +39,22 @@ $(function(){
 
     setTimeout(function() {
         $(".cards").animate({
-            opacity:"4.5"
-        }, 3000);
+            opacity:"2"
+        }, 2500);
     }, 3500);
 });
+
+
+
+
+
+
 
 $(function(){
     $(".back-suraido").css("display", "none");//アニメーション中は非表示
         setTimeout(function(){
             $('.ani1').slideUp();
-        },8000);//約10秒数後
+        },7500);//約10秒数後
 });
 
 $(function(){
@@ -56,7 +62,7 @@ $(function(){
         setTimeout(function(){
             $(".back-suraido").css("display", "block");
             $(".back-suraido").stop().animate({opacity:'1'},2000);//1秒かけてコンテンツを表示
-        },8000);//約10秒後に
+        },7500);//約10秒後に
 });
 
 $(function(){
