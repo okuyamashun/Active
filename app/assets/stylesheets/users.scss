@@ -4,7 +4,11 @@
 
 
     /*///  user-show   ///*/
-
+.sign-log-in-flash{
+  text-align: center;
+  background-color: #fff;
+  font-size: 20px;
+}
 .mypage-main{
   padding-bottom: 20px;
   background-image: url(/images/meisai.jpg);
@@ -74,6 +78,7 @@
   padding-bottom: 20px;
 }
 .mypage-main-user-introduction{
+  word-break: break-all;
   float: left;
   font-size: 18px;
   width: 700px;

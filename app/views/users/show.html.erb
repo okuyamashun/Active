@@ -1,7 +1,9 @@
-
-
-
 <div class="mypage-main clearfix">
+	<div class="sign-log-in-flash">
+		<% if flash[:notice] %>
+			<%= flash[:notice] %>
+		<% end %>
+	</div>
 	<div class="mypage-main-user clearfix">
 		<h3 class="mypage-main-user-title">マイプロフィール</h3>
 		<div class="mypage-main-user-option">
